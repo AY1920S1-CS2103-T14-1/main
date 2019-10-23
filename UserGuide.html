@@ -58,31 +58,31 @@
 <h3 id="classes"><a class="link" href="#classes">4.1. Classes</a></h3>
 <div class="paragraph">
 <p>Adds a class to the class list.<br>
-Format: add c/CLASS</p>
+Format: addclass c/CLASS</p>
 </div>
 <div class="paragraph">
 <p>Examples:
-* add c/4C
-* add c/3E5</p>
+* addclass c/4C
+* addclass c/3E5</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="students"><a class="link" href="#students">4.2. Students</a></h3>
 <div class="paragraph">
 <p>Adds a student to the student list.<br>
-Format: add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [m/MEDICAL_CONDITIONS] [t/TAG]&#8230;&#8203;</p>
+Format: add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS pp/PARENT_PHONE_NUMBER [m/MEDICAL_CONDITIONS] [t/TAG]&#8230;&#8203;</p>
 </div>
 <div class="paragraph">
 <p>Examples:<br>
-* add n/John Doe p/91234567 e/john.doe@gmail.com a/John Street, Block 123, #01-01<br>
-* add n/Jane Doe p/98765432 e/jane.doe@gmail.com a/Jane Street, Block 123, #10-10</p>
+* add n/John Doe p/91234567 e/john.doe@gmail.com a/John Street, Block 123, #01-01 pp/92222222<br>
+* add n/Jane Doe p/98765432 e/jane.doe@gmail.com a/Jane Street, Block 123, #10-10 pp/93333333</p>
 </div>
-<div class="paragraph">
-<p>===Assignments</p>
 </div>
+<div class="sect2">
+<h3 id="assignments"><a class="link" href="#assignments">4.3. Assignments</a></h3>
 <div class="paragraph">
 <p>Adds an assignment to the assignment list<br>
-Format: add as/ASSIGNMENT d/DEADLINE</p>
+Format: addassign as/ASSIGNMENT d/DEADLINE</p>
 </div>
 <div class="paragraph">
 <p>Examples:
@@ -90,15 +90,13 @@ Format: add as/ASSIGNMENT d/DEADLINE</p>
 * add as/CS2103 Individual Project d/30/09/2019</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="editing-edit"><a class="link" href="#editing-edit">4.3. Editing: edit</a></h3>
-
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="students-information"><a class="link" href="#students-information">5. Students’ information</a></h2>
+<h2 id="editing-edit"><a class="link" href="#editing-edit">5. Editing: edit</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="students-information"><a class="link" href="#students-information">5.1. Students’ information</a></h3>
 <div class="paragraph">
 <p>Edits an existing student in the student list.<br>
 Format: edit c/CLASS INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]<br>
@@ -111,92 +109,73 @@ Format: edit c/CLASS INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]<br>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="assignment-list"><a class="link" href="#assignment-list">6. Assignment List</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Edits an existing assignment in the assignment list.<br>
-Format: edit as/ASSIGNMENT [as/ASSIGNMENT] [d/DEADLINE]</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* edit as/CS2103 Assignment 2 [as/CS2103 Assignment 3]
-* edit as/CS2103 Examinations [d/19/09/2019]</p>
-</div>
-</div>
 </div>
 <div class="sect1">
-<h2 id="students-grades-for-individual-assignments"><a class="link" href="#students-grades-for-individual-assignments">7. Students’ grades for individual assignments</a></h2>
+<h2 id="updating-update"><a class="link" href="#updating-update">6. Updating: update</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Edits the grades for students in the individual assignments.<br>
-Format: edit as/ASSIGNMENT GRADE_ONE/GRADE_TWO/GRADE_THREE/&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* edit as/CS2103 70/30/50
-* edit as/CS2103 Assignment 1 1/2/3/4/5/6/7/8/9/10</p>
-</div>
 <div class="sect2">
-<h3 id="listing-list"><a class="link" href="#listing-list">7.1. Listing: list</a></h3>
-
+<h3 id="students-grades-for-individual-assignments"><a class="link" href="#students-grades-for-individual-assignments">6.1. Students’ grades for individual assignments</a></h3>
+<div class="paragraph">
+<p>Edits the grades for students of the specified assignment index. Additional arguments will be dropped and too few
+arguments will be prompted to the user.<br>
+Format: edit c/CLASS INDEX g/GRADE_ONE GRADE_TWO GRADE_THREE &#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>Examples:
+* edit c/4E3 2 g/70 30 50</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="class-list"><a class="link" href="#class-list">8. Class list</a></h2>
+<h2 id="listing-list"><a class="link" href="#listing-list">7. Listing: list</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="class-list"><a class="link" href="#class-list">7.1. Class list</a></h3>
 <div class="paragraph">
 <p>Shows a list of all classes taken by the user.<br>
 Format: list class</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="student-list"><a class="link" href="#student-list">9. Student list</a></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="student-list"><a class="link" href="#student-list">7.2. Student list</a></h3>
 <div class="paragraph">
 <p>Shows a list of all students in a particular class of the user.<br>
 Format: list [c/CLASS] students</p>
 </div>
 <div class="paragraph">
 <p>Examples:
-* list c/4E3 students
-* list students</p>
+* list c/4E3 students</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="assignment-list-2"><a class="link" href="#assignment-list-2">10. Assignment list</a></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="assignment-list"><a class="link" href="#assignment-list">7.3. Assignment list</a></h3>
 <div class="paragraph">
 <p>Shows a list of all assignments of classes of the user.<br>
-Format: list c/CLASS assignments</p>
+Format: listassign c/CLASS</p>
 </div>
 <div class="paragraph">
 <p>Examples:
-* list c/4C assignments
-* list c/5E3 assignments</p>
+* listassign c/4C
+* listassign c/5E3</p>
 </div>
-<div class="sect2">
-<h3 id="sending-reminders-to-teachers"><a class="link" href="#sending-reminders-to-teachers">10.1. Sending reminders to teachers</a></h3>
-<div class="paragraph">
-<p>GitHub
-AY1920S1-CS2103-T14-1/main
-Address Book - Level 3. Contribute to AY1920S1-CS2103-T14-1/main development by creating an account on GitHub.
- Sends system notification to user 10 minutes before event (assumes user keeps program running continuously).<br>
-Format: none, reminder should come automatically</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="locating-find"><a class="link" href="#locating-find">10.2. Locating: find</a></h3>
-
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="students-by-name"><a class="link" href="#students-by-name">11. Students by name</a></h2>
+<h2 id="sending-reminders-to-teachers"><a class="link" href="#sending-reminders-to-teachers">8. Sending reminders to teachers</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Sends system notification to user 10 minutes before event (assumes user keeps program running continuously).<br>
+Format: none, reminder should come automatically</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="locating-find"><a class="link" href="#locating-find">9. Locating: find</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="students-by-name"><a class="link" href="#students-by-name">9.1. Students by name</a></h3>
 <div class="paragraph">
 <p>Find students whose name matches a given keyword.<br>
 Format: find s/STUDENT_NAME</p>
@@ -208,8 +187,9 @@ Format: find s/STUDENT_NAME</p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="assignments-by-name"><a class="link" href="#assignments-by-name">12. Assignments by name</a></h2>
+<h2 id="assignments-by-name"><a class="link" href="#assignments-by-name">10. Assignments by name</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Find assignments which name matches given keyword.<br>
@@ -220,34 +200,60 @@ Format: find [c/CLASS] as/ASSIGNMENT</p>
 * find c/4E3 as/CS2103
 * find as/CS2103</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="deleting-delete"><a class="link" href="#deleting-delete">11. Deleting: delete</a></h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="deleting-an-assignment-delete"><a class="link" href="#deleting-an-assignment-delete">12.1. Deleting an assignment: delete</a></h3>
+<h3 id="deleting-student"><a class="link" href="#deleting-student">11.1. Deleting student</a></h3>
 <div class="paragraph">
-<p>Deletes the specified assignment from the assignment hashmap. The name refers to the key of the hashmap of assignments.<br>
-Format: delete ASSIGNMENT</p>
+<p>Deletes the student in the index from the specified class list.
+Format: delete c/CLASS s/INDEX</p>
 </div>
 <div class="paragraph">
 <p>Examples:
-* delete CS2103 midterm
-* delete CS2103 project</p>
+* delete c/4E3 s/3</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-undo"><a class="link" href="#undo-undo">12.2. Undo: undo</a></h3>
+<h3 id="deleting-assignment"><a class="link" href="#deleting-assignment">11.2. Deleting assignment</a></h3>
 <div class="paragraph">
-<p>Restores application to the state before previous before previous command was executed.
+<p>Deletes the assignment in the index from the specified class list.
+Format: delete c/CLASS as/INDEX</p>
+</div>
+<div class="paragraph">
+<p>Examples:
+* delete c/4E as/3</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="undo-undo"><a class="link" href="#undo-undo">12. Undo: undo</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Restores application to the state before previous command was executed.
 Format: undo</p>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="redo-redo"><a class="link" href="#redo-redo">13. Redo: redo</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Restores application to the state before previous undo command was executed.
+Format: redo</p>
+</div>
 <div class="sect2">
-<h3 id="history"><a class="link" href="#history">12.3. History</a></h3>
+<h3 id="history"><a class="link" href="#history">13.1. History</a></h3>
 <div class="paragraph">
 <p>Generates user’s last typed command.<br>
 Format: up arrow key brings up last typed command into user input box.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="generate-file-generate"><a class="link" href="#generate-file-generate">12.4. Generate file: generate</a></h3>
+<h3 id="generate-file-generate"><a class="link" href="#generate-file-generate">13.2. Generate file: generate</a></h3>
 <div class="paragraph">
 <p>Generate test score of class for every test into csv file. This will be in a more readable format for users to see.<br>
 Format: generate CLASS_NAME</p>
@@ -259,14 +265,14 @@ Format: generate CLASS_NAME</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">12.5. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">13.3. Saving data</a></h3>
 <div class="paragraph">
 <p>The programme automatically saves the data in a txt file whenever a command is issued.<br>
 Format: none, saving data will be done automatically</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-programme-exit"><a class="link" href="#exiting-the-programme-exit">12.6. Exiting the programme: exit</a></h3>
+<h3 id="exiting-the-programme-exit"><a class="link" href="#exiting-the-programme-exit">13.4. Exiting the programme: exit</a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: exit</p>
@@ -275,7 +281,7 @@ Format: exit</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">13. FAQ</a></h2>
+<h2 id="faq"><a class="link" href="#faq">14. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Coming up soon!</p>
@@ -283,13 +289,13 @@ Format: exit</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">14. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">15. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Add: add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [m/MEDICAL_CONDITIONS] [t/TAG] …<br>
-e.g. add n/John Doe p/91234567 e/john_doe@gmail.com</p>
+<p>Add: add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS pp/PARENT_PHONE_NUMBER [m/MEDICAL_CONDITIONS] [t/TAG] …<br>
+e.g. add n/John Doe p/91234567 e/john_doe@gmail.com pp/98765432</p>
 </li>
 <li>
 <p>Edit: edit c/CLASS INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]<br>
@@ -297,18 +303,28 @@ e.g. add n/John Doe p/91234567 e/john_doe@gmail.com</p>
 e.g. edit c/4C 2 p/91111111</p>
 </li>
 <li>
-<p>List: list class</p>
+<p>Update: update c/CLASS INDEX g/GRADE_ONE GRADE_TWO GRADE_THREE&#8230;&#8203;<br>
+e.g. update c/4E3 3 g/70 60 50</p>
+</li>
+<li>
+<p>List: list c/CLASS OR listassign c/CLASS<br>
+e.g. list c/4C<br>
+e.g. listassign c/4E3</p>
 </li>
 <li>
 <p>Find: find s/STUDENT_NAME<br>
 e.g. find s/John Doe</p>
 </li>
 <li>
-<p>Delete: delete ASSIGNMENT<br>
-e.g. delete midterms</p>
+<p>Delete: delete c/CLASS s/INDEX OR delete c/CLASS as/INDEX<br>
+e.g. delete c/4C s/5<br>
+e.g. delete c/4E3 as/2</p>
 </li>
 <li>
 <p>Undo: undo</p>
+</li>
+<li>
+<p>Redo: redo</p>
 </li>
 <li>
 <p>Generate: generate CLASSNAME<br>
@@ -319,290 +335,5 @@ e.g. generate 4C</p>
 </li>
 </ul>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>= Teacher’s Notebook - User Guide
-:site-section: UserGuide
-:toc:
-:toc-title:
-:toc-placement: preamble
-:sectnums:
-:imagesDir: images
-:stylesDir: stylesheets
-:xrefstyle: full
-:experimental:
-:repoURL: <a href="https://github.com/AY1920S1-CS2103-T14-1/main" class="bare">https://github.com/AY1920S1-CS2103-T14-1/main</a>
-By: 'Team CS2103-T14-1'	   Since: 'Sep 2019'</p>
 </div>
-<div class="paragraph">
-<p>== Introduction</p>
-</div>
-<div class="paragraph">
-<p>Teacher’s Notebook is for teachers who prefer to make use of an application to keep track of the deliverables, tasks and students’ information. It is optimized for teachers who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). If you are a teacher who wants to manage your students and your tasks efficiently, and can type fast, Teacher’s Notebook can get your work done much faster than traditional applications! Jump to Section 2, “Quick Start” to get started! Enjoy!</p>
-</div>
-<div class="paragraph">
-<p>== Quick Start</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Ensure you have Java 11 or above installed in your Computer.</p>
-</li>
-<li>
-<p>Download the latest teachersnotebook.jar here.</p>
-</li>
-<li>
-<p>Copy the file to the folder you want to use as the home folder for your Teacher’s Notebook.</p>
-</li>
-<li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
-</li>
-<li>
-<p>Type in the commands and press enter to execute them. Refer to Section 3: Features for more details on the commands.</p>
-</li>
-<li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
-</li>
-</ol>
-</div>
-<div id="Features" class="paragraph">
-<p>== Features</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Command Format</strong>
-* Words in UPPER_CASE are the parameters supplied by the user e.g. in add c/CLASS, CLASS is a parameter which can be used as add c/4C.
-* Items in square brackets are optional e.g. n/NAME [a/ADDRESS] can be used as n/John Doe a/National University of Singapore or n/John Doe.
-* Items with … after them can be used multiple times including zero times e.g. [m/MEDICAL_CONDITIONS]&#8230;&#8203; can be used as   (i.e. 0 times), m/Sinus, m/Sinus m/Asthma etc.
-* Parameters can be in any order e.g. if the command specifies n/NAME i/INDEX, n/NAME, i/INDEX is also acceptable</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>== Adding: add</p>
-</div>
-<div class="paragraph">
-<p>=== Classes</p>
-</div>
-<div class="paragraph">
-<p>Adds a class to the class list.<br>
-Format: add c/CLASS</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* add c/4C
-* add c/3E5</p>
-</div>
-<div class="paragraph">
-<p>=== Students</p>
-</div>
-<div class="paragraph">
-<p>Adds a student to the student list.<br>
-Format: add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [m/MEDICAL_CONDITIONS] [t/TAG]&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Examples:<br>
-* add n/John Doe p/91234567 e/john.doe@gmail.com a/John Street, Block 123, #01-01<br>
-* add n/Jane Doe p/98765432 e/jane.doe@gmail.com a/Jane Street, Block 123, #10-10</p>
-</div>
-<div class="paragraph">
-<p>===Assignments</p>
-</div>
-<div class="paragraph">
-<p>Adds an assignment to the assignment list<br>
-Format: add as/ASSIGNMENT d/DEADLINE</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* add as/CS2103 Team Project d/31/10/2019
-* add as/CS2103 Individual Project d/30/09/2019</p>
-</div>
-<div class="paragraph">
-<p>=== Editing: edit</p>
-</div>
-<div class="paragraph">
-<p>== Students’ information</p>
-</div>
-<div class="paragraph">
-<p>Edits an existing student in the student list.<br>
-Format: edit c/CLASS INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]<br>
-[m/MEDICAL_CONDITIONS], [t/TAG]&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* edit c/4C 2 p/91111111
-* edit c/5E2 4 e/new_email@gmail.com</p>
-</div>
-<div class="paragraph">
-<p>== Assignment List</p>
-</div>
-<div class="paragraph">
-<p>Edits an existing assignment in the assignment list.<br>
-Format: edit as/ASSIGNMENT [as/ASSIGNMENT] [d/DEADLINE]</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* edit as/CS2103 Assignment 2 [as/CS2103 Assignment 3]
-* edit as/CS2103 Examinations [d/19/09/2019]</p>
-</div>
-<div class="paragraph">
-<p>== Students’ grades for individual assignments</p>
-</div>
-<div class="paragraph">
-<p>Edits the grades for students in the individual assignments.<br>
-Format: edit as/ASSIGNMENT GRADE_ONE/GRADE_TWO/GRADE_THREE/&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* edit as/CS2103 70/30/50
-* edit as/CS2103 Assignment 1 1/2/3/4/5/6/7/8/9/10</p>
-</div>
-<div class="paragraph">
-<p>=== Listing: list</p>
-</div>
-<div class="paragraph">
-<p>== Class list</p>
-</div>
-<div class="paragraph">
-<p>Shows a list of all classes taken by the user.<br>
-Format: list class</p>
-</div>
-<div class="paragraph">
-<p>== Student list</p>
-</div>
-<div class="paragraph">
-<p>Shows a list of all students in a particular class of the user.<br>
-Format: list [c/CLASS] students</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* list c/4E3 students
-* list students</p>
-</div>
-<div class="paragraph">
-<p>== Assignment list</p>
-</div>
-<div class="paragraph">
-<p>Shows a list of all assignments of classes of the user.<br>
-Format: list c/CLASS assignments</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* list c/4C assignments
-* list c/5E3 assignments</p>
-</div>
-<div class="paragraph">
-<p>=== Sending reminders to teachers</p>
-</div>
-<div class="paragraph">
-<p>Sends system notification to user 10 minutes before event (assumes user keeps program running continuously).<br>
-Format: none, reminder should come automatically</p>
-</div>
-<div class="paragraph">
-<p>=== Locating: find</p>
-</div>
-<div class="paragraph">
-<p>== Students by name</p>
-</div>
-<div class="paragraph">
-<p>Find students whose name matches a given keyword.<br>
-Format: find s/STUDENT_NAME</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* find s/John Doe
-* find s/Jane Doe</p>
-</div>
-<div class="paragraph">
-<p>== Assignments by name</p>
-</div>
-<div class="paragraph">
-<p>Find assignments which name matches given keyword.<br>
-Format: find [c/CLASS] as/ASSIGNMENT</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* find c/4E3 as/CS2103
-* find as/CS2103</p>
-</div>
-<div class="paragraph">
-<p>=== Deleting an assignment: delete</p>
-</div>
-<div class="paragraph">
-<p>Deletes the specified assignment from the assignment hashmap. The name refers to the key of the hashmap of assignments.<br>
-Format: delete ASSIGNMENT</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* delete CS2103 midterm
-* delete CS2103 project</p>
-</div>
-<div class="paragraph">
-<p>=== Undo: undo</p>
-</div>
-<div class="paragraph">
-<p>Restores application to the state before previous before previous command was executed.
-Format: undo</p>
-</div>
-<div class="paragraph">
-<p>=== History</p>
-</div>
-<div class="paragraph">
-<p>Generates user’s last typed command.<br>
-Format: up arrow key brings up last typed command into user input box.</p>
-</div>
-<div class="paragraph">
-<p>=== Generate file: generate</p>
-</div>
-<div class="paragraph">
-<p>Generate test score of class for every test into csv file. This will be in a more readable format for users to see.<br>
-Format: generate CLASS_NAME</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* generate 4C
-* generate 5E3</p>
-</div>
-<div class="paragraph">
-<p>=== Saving data</p>
-</div>
-<div class="paragraph">
-<p>The programme automatically saves the data in a txt file whenever a command is issued.<br>
-Format: none, saving data will be done automatically</p>
-</div>
-<div class="paragraph">
-<p>=== Exiting the programme: exit</p>
-</div>
-<div class="paragraph">
-<p>Exits the program.<br>
-Format: exit</p>
-</div>
-<div class="paragraph">
-<p>== FAQ</p>
-</div>
-<div class="paragraph">
-<p>Coming up soon!</p>
-</div>
-<div class="paragraph">
-<p>== Command Summary
-* Add: add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [m/MEDICAL_CONDITIONS] [t/TAG] …<br>
-e.g. add n/John Doe p/91234567 e/john_doe@gmail.com
-* Edit: edit c/CLASS INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]<br>
-[m/MEDICAL_CONDITIONS], [t/TAG]<br>
-e.g. edit c/4C 2 p/91111111
-* List: list class
-* Find: find s/STUDENT_NAME<br>
-e.g. find s/John Doe
-* Delete: delete ASSIGNMENT<br>
-e.g. delete midterms
-* Undo: undo
-* Generate: generate CLASSNAME<br>
-e.g. generate 4C
-* Exit: exit</p>
-</div>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 02:57:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 05:30:26 UTC</div></div></div></body></html>

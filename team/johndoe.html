@@ -145,31 +145,31 @@
 <h3 id="classes"><a class="link" href="#classes">Classes</a></h3>
 <div class="paragraph">
 <p>Adds a class to the class list.<br>
-Format: add c/CLASS</p>
+Format: addclass c/CLASS</p>
 </div>
 <div class="paragraph">
 <p>Examples:
-* add c/4C
-* add c/3E5</p>
+* addclass c/4C
+* addclass c/3E5</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="students"><a class="link" href="#students">Students</a></h3>
 <div class="paragraph">
 <p>Adds a student to the student list.<br>
-Format: add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [m/MEDICAL_CONDITIONS] [t/TAG]&#8230;&#8203;</p>
+Format: add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS pp/PARENT_PHONE_NUMBER [m/MEDICAL_CONDITIONS] [t/TAG]&#8230;&#8203;</p>
 </div>
 <div class="paragraph">
 <p>Examples:<br>
-* add n/John Doe p/91234567 e/john.doe@gmail.com a/John Street, Block 123, #01-01<br>
-* add n/Jane Doe p/98765432 e/jane.doe@gmail.com a/Jane Street, Block 123, #10-10</p>
+* add n/John Doe p/91234567 e/john.doe@gmail.com a/John Street, Block 123, #01-01 pp/92222222<br>
+* add n/Jane Doe p/98765432 e/jane.doe@gmail.com a/Jane Street, Block 123, #10-10 pp/93333333</p>
 </div>
-<div class="paragraph">
-<p>===Assignments</p>
 </div>
+<div class="sect2">
+<h3 id="assignments"><a class="link" href="#assignments">Assignments</a></h3>
 <div class="paragraph">
 <p>Adds an assignment to the assignment list<br>
-Format: add as/ASSIGNMENT d/DEADLINE</p>
+Format: addassign as/ASSIGNMENT d/DEADLINE</p>
 </div>
 <div class="paragraph">
 <p>Examples:
@@ -180,53 +180,10 @@ Format: add as/ASSIGNMENT d/DEADLINE</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="adding-add-2"><a class="link" href="#adding-add-2">Adding: add</a></h2>
+<h2 id="editing-edit"><a class="link" href="#editing-edit">Editing: edit</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="classes-2"><a class="link" href="#classes-2">Classes</a></h3>
-<div class="paragraph">
-<p>Adds a class to the class list.<br>
-Format: add c/CLASS</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* add c/4C
-* add c/3E5</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="students-2"><a class="link" href="#students-2">Students</a></h3>
-<div class="paragraph">
-<p>Adds a student to the student list.<br>
-Format: add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [m/MEDICAL_CONDITIONS] [t/TAG]&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Examples:<br>
-* add n/John Doe p/91234567 e/john.doe@gmail.com a/John Street, Block 123, #01-01<br>
-* add n/Jane Doe p/98765432 e/jane.doe@gmail.com a/Jane Street, Block 123, #10-10</p>
-</div>
-<div class="paragraph">
-<p>===Assignments</p>
-</div>
-<div class="paragraph">
-<p>Adds an assignment to the assignment list<br>
-Format: add as/ASSIGNMENT d/DEADLINE</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* add as/CS2103 Team Project d/31/10/2019
-* add as/CS2103 Individual Project d/30/09/2019</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-edit"><a class="link" href="#editing-edit">Editing: edit</a></h3>
-
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="students-information"><a class="link" href="#students-information">Students’ information</a></h2>
-<div class="sectionbody">
+<h3 id="students-information"><a class="link" href="#students-information">Students’ information</a></h3>
 <div class="paragraph">
 <p>Edits an existing student in the student list.<br>
 Format: edit c/CLASS INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]<br>
@@ -239,208 +196,83 @@ Format: edit c/CLASS INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]<br>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="assignment-list"><a class="link" href="#assignment-list">Assignment List</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Edits an existing assignment in the assignment list.<br>
-Format: edit as/ASSIGNMENT [as/ASSIGNMENT] [d/DEADLINE]</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* edit as/CS2103 Assignment 2 [as/CS2103 Assignment 3]
-* edit as/CS2103 Examinations [d/19/09/2019]</p>
-</div>
-</div>
 </div>
 <div class="sect1">
-<h2 id="students-grades-for-individual-assignments"><a class="link" href="#students-grades-for-individual-assignments">Students’ grades for individual assignments</a></h2>
+<h2 id="listing-list"><a class="link" href="#listing-list">Listing: list</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Edits the grades for students in the individual assignments.<br>
-Format: edit as/ASSIGNMENT GRADE_ONE/GRADE_TWO/GRADE_THREE/&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* edit as/CS2103 70/30/50
-* edit as/CS2103 Assignment 1 1/2/3/4/5/6/7/8/9/10</p>
-</div>
 <div class="sect2">
-<h3 id="editing-edit-2"><a class="link" href="#editing-edit-2">Editing: edit</a></h3>
-
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="students-information-2"><a class="link" href="#students-information-2">Students’ information</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Edits an existing student in the student list.<br>
-Format: edit c/CLASS INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]<br>
-[m/MEDICAL_CONDITIONS], [t/TAG]&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* edit c/4C 2 p/91111111
-* edit c/5E2 4 e/new_email@gmail.com</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="assignment-list-2"><a class="link" href="#assignment-list-2">Assignment List</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Edits an existing assignment in the assignment list.<br>
-Format: edit as/ASSIGNMENT [as/ASSIGNMENT] [d/DEADLINE]</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* edit as/CS2103 Assignment 2 [as/CS2103 Assignment 3]
-* edit as/CS2103 Examinations [d/19/09/2019]</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="students-grades-for-individual-assignments-2"><a class="link" href="#students-grades-for-individual-assignments-2">Students’ grades for individual assignments</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Edits the grades for students in the individual assignments.<br>
-Format: edit as/ASSIGNMENT GRADE_ONE/GRADE_TWO/GRADE_THREE/&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* edit as/CS2103 70/30/50
-* edit as/CS2103 Assignment 1 1/2/3/4/5/6/7/8/9/10</p>
-</div>
-<div class="sect2">
-<h3 id="listing-list"><a class="link" href="#listing-list">Listing: list</a></h3>
-
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="class-list"><a class="link" href="#class-list">Class list</a></h2>
-<div class="sectionbody">
+<h3 id="class-list"><a class="link" href="#class-list">Class list</a></h3>
 <div class="paragraph">
 <p>Shows a list of all classes taken by the user.<br>
 Format: list class</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="student-list"><a class="link" href="#student-list">Student list</a></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="student-list"><a class="link" href="#student-list">Student list</a></h3>
 <div class="paragraph">
 <p>Shows a list of all students in a particular class of the user.<br>
 Format: list [c/CLASS] students</p>
 </div>
 <div class="paragraph">
 <p>Examples:
-* list c/4E3 students
-* list students</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="assignment-list-3"><a class="link" href="#assignment-list-3">Assignment list</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Shows a list of all assignments of classes of the user.<br>
-Format: list c/CLASS assignments</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* list c/4C assignments
-* list c/5E3 assignments
-=== Listing: list</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="class-list-2"><a class="link" href="#class-list-2">Class list</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Shows a list of all classes taken by the user.<br>
-Format: list class</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="student-list-2"><a class="link" href="#student-list-2">Student list</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Shows a list of all students in a particular class of the user.<br>
-Format: list [c/CLASS] students</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* list c/4E3 students
-* list students</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="assignment-list-4"><a class="link" href="#assignment-list-4">Assignment list</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Shows a list of all assignments of classes of the user.<br>
-Format: list c/CLASS assignments</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* list c/4C assignments
-* list c/5E3 assignments</p>
-</div>
-<div class="sect2">
-<h3 id="sending-reminders-to-teachers"><a class="link" href="#sending-reminders-to-teachers">Sending reminders to teachers</a></h3>
-<div class="paragraph">
-<p>GitHub
-AY1920S1-CS2103-T14-1/main
-Address Book - Level 3. Contribute to AY1920S1-CS2103-T14-1/main development by creating an account on GitHub.
- Sends system notification to user 10 minutes before event (assumes user keeps program running continuously).<br>
-Format: none, reminder should come automatically</p>
+* list c/4E3 students</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sending-reminders-to-teachers-2"><a class="link" href="#sending-reminders-to-teachers-2">Sending reminders to teachers</a></h3>
+<h3 id="assignment-list"><a class="link" href="#assignment-list">Assignment list</a></h3>
+<div class="paragraph">
+<p>Shows a list of all assignments of classes of the user.<br>
+Format: listassign c/CLASS</p>
+</div>
+<div class="paragraph">
+<p>Examples:
+* listassign c/4C
+* listassign c/5E3</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sending-reminders-to-teachers"><a class="link" href="#sending-reminders-to-teachers">Sending reminders to teachers</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Sends system notification to user 10 minutes before event (assumes user keeps program running continuously).<br>
 Format: none, reminder should come automatically</p>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="deleting-delete"><a class="link" href="#deleting-delete">Deleting: delete</a></h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="deleting-an-assignment-delete"><a class="link" href="#deleting-an-assignment-delete">Deleting an assignment: delete</a></h3>
+<h3 id="deleting-student"><a class="link" href="#deleting-student">Deleting student</a></h3>
 <div class="paragraph">
-<p>Deletes the specified assignment from the assignment hashmap. The name refers to the key of the hashmap of assignments.<br>
-Format: delete ASSIGNMENT</p>
+<p>Deletes the student in the index from the specified class list.
+Format: delete c/CLASS s/INDEX</p>
 </div>
 <div class="paragraph">
 <p>Examples:
-* delete CS2103 midterm
-* delete CS2103 project</p>
+* delete c/4E3 s/3</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-assignment-delete-2"><a class="link" href="#deleting-an-assignment-delete-2">Deleting an assignment: delete</a></h3>
+<h3 id="deleting-assignment"><a class="link" href="#deleting-assignment">Deleting assignment</a></h3>
 <div class="paragraph">
-<p>Deletes the specified assignment from the assignment hashmap. The name refers to the key of the hashmap of assignments.<br>
-Format: delete ASSIGNMENT</p>
+<p>Deletes the assignment in the index from the specified class list.
+Format: delete c/CLASS as/INDEX</p>
 </div>
 <div class="paragraph">
 <p>Examples:
-* delete CS2103 midterm
-* delete CS2103 project</p>
+* delete c/4E as/3</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="locating-find"><a class="link" href="#locating-find">Locating: find</a></h3>
-
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="students-by-name"><a class="link" href="#students-by-name">Students by name</a></h2>
+<h2 id="locating-find"><a class="link" href="#locating-find">Locating: find</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="students-by-name"><a class="link" href="#students-by-name">Students by name</a></h3>
 <div class="paragraph">
 <p>Find students whose name matches a given keyword.<br>
 Format: find s/STUDENT_NAME</p>
@@ -449,43 +281,12 @@ Format: find s/STUDENT_NAME</p>
 <p>Examples:
 * find s/John Doe
 * find s/Jane Doe</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="assignments-by-name"><a class="link" href="#assignments-by-name">Assignments by name</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Find assignments which name matches given keyword.<br>
-Format: find [c/CLASS] as/ASSIGNMENT</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* find c/4E3 as/CS2103
-* find as/CS2103</p>
-</div>
-<div class="sect2">
-<h3 id="locating-find-2"><a class="link" href="#locating-find-2">Locating: find</a></h3>
-
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="students-by-name-2"><a class="link" href="#students-by-name-2">Students by name</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Find students whose name matches a given keyword.<br>
-Format: find s/STUDENT_NAME</p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* find s/John Doe
-* find s/Jane Doe</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="assignments-by-name-2"><a class="link" href="#assignments-by-name-2">Assignments by name</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Find assignments which name matches given keyword.<br>
@@ -512,35 +313,35 @@ Format: find [c/CLASS] as/ASSIGNMENT</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">[Proposed] Undo/Redo feature</a></h3>
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">Proposed Implementation</a></h4>
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
+<p>The undo/redo mechanism is facilitated by <code>Caretaker</code>, with each address book state saved as a <code>Memento</code>.
+It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>mementos</code> and <code>statePointer</code>.
 Additionally, it implements the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
+<p><code>Caretaker#saveState()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
+<p><code>Caretaker#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history by undoing the previous command.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
+<p><code>Caretaker#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history by redoing the previously undone command.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#saveState()</code>, <code>Model#undo()</code> and <code>Model#redo()</code> respectively.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+<p>Step 1. The user launches the application for the first time. The <code>Caretaker</code> will be initialized with the initial address book state, and the <code>statePointer</code> pointing to that single address book state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -548,7 +349,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
+<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#saveState()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>mementos</code>, and the <code>statePointer</code> is shifted to the newly inserted address book state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -556,7 +357,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#saveState()</code>, causing another modified address book state to be saved into the <code>mementos</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -570,13 +371,13 @@ Additionally, it implements the following operations:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
+If a command fails its execution, it will not call <code>Model#saveState()</code>, so the address book state will not be saved into the <code>mementos</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
+<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undo()</code>, which will shift the <code>statePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -590,7 +391,7 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+If the <code>statePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndo()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
 </td>
 </tr>
 </table>
@@ -616,7 +417,7 @@ The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) b
 </table>
 </div>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
+<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redo()</code>, which shifts the <code>statePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -625,13 +426,13 @@ The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) b
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedo()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
+<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#saveState()</code>, <code>Model#undo()</code> or <code>Model#redo()</code>. Thus, the <code>mementos</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -639,7 +440,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState()</code>. Since the <code>statePointer</code> is not pointing at the end of the <code>mementos</code>, all address book states after the <code>statePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -683,6 +484,9 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 <li>
 <p>Cons: We must ensure that the implementation of each individual command are correct.</p>
+</li>
+<li>
+<p>Cons: Need to ensure that the commands are able to be executed at the correct index.</p>
 </li>
 </ul>
 </div>
@@ -741,4 +545,4 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 02:57:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 05:30:26 UTC</div></div></div></body></html>
