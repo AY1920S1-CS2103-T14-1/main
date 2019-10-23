@@ -136,13 +136,10 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="adding-add"><a class="link" href="#adding-add">Adding: add</a></h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="classes"><a class="link" href="#classes">Classes</a></h3>
+<h3 id="adding-add"><a class="link" href="#adding-add">Adding: add</a></h3>
+<div class="sect3">
+<h4 id="classes"><a class="link" href="#classes">Classes</a></h4>
 <div class="paragraph">
 <p>Adds a class to the class list.<br>
 Format: addclass c/CLASS</p>
@@ -153,8 +150,8 @@ Format: addclass c/CLASS</p>
 * addclass c/3E5</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="students"><a class="link" href="#students">Students</a></h3>
+<div class="sect3">
+<h4 id="students"><a class="link" href="#students">Students</a></h4>
 <div class="paragraph">
 <p>Adds a student to the student list.<br>
 Format: add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS pp/PARENT_PHONE_NUMBER [m/MEDICAL_CONDITIONS] [t/TAG]&#8230;&#8203;</p>
@@ -165,8 +162,8 @@ Format: add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS pp/PARENT_PHONE_NUMBER [m/ME
 * add n/Jane Doe p/98765432 e/jane.doe@gmail.com a/Jane Street, Block 123, #10-10 pp/93333333</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="assignments"><a class="link" href="#assignments">Assignments</a></h3>
+<div class="sect3">
+<h4 id="assignments"><a class="link" href="#assignments">Assignments</a></h4>
 <div class="paragraph">
 <p>Adds an assignment to the assignment list<br>
 Format: addassign as/ASSIGNMENT d/DEADLINE</p>
@@ -178,12 +175,10 @@ Format: addassign as/ASSIGNMENT d/DEADLINE</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="editing-edit"><a class="link" href="#editing-edit">Editing: edit</a></h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="students-information"><a class="link" href="#students-information">Students’ information</a></h3>
+<h3 id="editing-edit"><a class="link" href="#editing-edit">Editing: edit</a></h3>
+<div class="sect3">
+<h4 id="students-information"><a class="link" href="#students-information">Students’ information</a></h4>
 <div class="paragraph">
 <p>Edits an existing student in the student list.<br>
 Format: edit c/CLASS INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]<br>
@@ -196,19 +191,17 @@ Format: edit c/CLASS INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]<br>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="listing-list"><a class="link" href="#listing-list">Listing: list</a></h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="class-list"><a class="link" href="#class-list">Class list</a></h3>
+<h3 id="listing-list"><a class="link" href="#listing-list">Listing: list</a></h3>
+<div class="sect3">
+<h4 id="class-list"><a class="link" href="#class-list">Class list</a></h4>
 <div class="paragraph">
 <p>Shows a list of all classes taken by the user.<br>
 Format: list class</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="student-list"><a class="link" href="#student-list">Student list</a></h3>
+<div class="sect3">
+<h4 id="student-list"><a class="link" href="#student-list">Student list</a></h4>
 <div class="paragraph">
 <p>Shows a list of all students in a particular class of the user.<br>
 Format: list [c/CLASS] students</p>
@@ -218,8 +211,8 @@ Format: list [c/CLASS] students</p>
 * list c/4E3 students</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="assignment-list"><a class="link" href="#assignment-list">Assignment list</a></h3>
+<div class="sect3">
+<h4 id="assignment-list"><a class="link" href="#assignment-list">Assignment list</a></h4>
 <div class="paragraph">
 <p>Shows a list of all assignments of classes of the user.<br>
 Format: listassign c/CLASS</p>
@@ -231,21 +224,17 @@ Format: listassign c/CLASS</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="sending-reminders-to-teachers"><a class="link" href="#sending-reminders-to-teachers">Sending reminders to teachers</a></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="sending-reminders-to-teachers"><a class="link" href="#sending-reminders-to-teachers">Sending reminders to teachers</a></h3>
 <div class="paragraph">
 <p>Sends system notification to user 10 minutes before event (assumes user keeps program running continuously).<br>
 Format: none, reminder should come automatically</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="deleting-delete"><a class="link" href="#deleting-delete">Deleting: delete</a></h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="deleting-student"><a class="link" href="#deleting-student">Deleting student</a></h3>
+<h3 id="deleting-delete"><a class="link" href="#deleting-delete">Deleting: delete</a></h3>
+<div class="sect3">
+<h4 id="deleting-student"><a class="link" href="#deleting-student">Deleting student</a></h4>
 <div class="paragraph">
 <p>Deletes the student in the index from the specified class list.
 Format: delete c/CLASS s/INDEX</p>
@@ -255,8 +244,8 @@ Format: delete c/CLASS s/INDEX</p>
 * delete c/4E3 s/3</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-assignment"><a class="link" href="#deleting-assignment">Deleting assignment</a></h3>
+<div class="sect3">
+<h4 id="deleting-assignment"><a class="link" href="#deleting-assignment">Deleting assignment</a></h4>
 <div class="paragraph">
 <p>Deletes the assignment in the index from the specified class list.
 Format: delete c/CLASS as/INDEX</p>
@@ -267,12 +256,10 @@ Format: delete c/CLASS as/INDEX</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="locating-find"><a class="link" href="#locating-find">Locating: find</a></h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="students-by-name"><a class="link" href="#students-by-name">Students by name</a></h3>
+<h3 id="locating-find"><a class="link" href="#locating-find">Locating: find</a></h3>
+<div class="sect3">
+<h4 id="students-by-name"><a class="link" href="#students-by-name">Students by name</a></h4>
 <div class="paragraph">
 <p>Find students whose name matches a given keyword.<br>
 Format: find s/STUDENT_NAME</p>
@@ -284,10 +271,8 @@ Format: find s/STUDENT_NAME</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="assignments-by-name"><a class="link" href="#assignments-by-name">Assignments by name</a></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="assignments-by-name"><a class="link" href="#assignments-by-name">Assignments by name</a></h3>
 <div class="paragraph">
 <p>Find assignments which name matches given keyword.<br>
 Format: find [c/CLASS] as/ASSIGNMENT</p>
@@ -296,6 +281,7 @@ Format: find [c/CLASS] as/ASSIGNMENT</p>
 <p>Examples:
 * find c/4E3 as/CS2103
 * find as/CS2103</p>
+</div>
 </div>
 </div>
 </div>
@@ -545,4 +531,4 @@ If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, p
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 05:30:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 05:33:15 UTC</div></div></div></body></html>
