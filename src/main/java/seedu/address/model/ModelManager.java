@@ -174,7 +174,7 @@ public class ModelManager implements Model {
 
     /**
      * Returns an unmodifiable view of the list of {@code Student} backed by the internal list of
-     * {@code versionedAddressBook}
+     * {@code versionedClassroom}
      */
     @Override
     public ObservableList<Student> getFilteredStudentList() {
