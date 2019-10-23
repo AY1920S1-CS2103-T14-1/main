@@ -23,6 +23,29 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.3. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+</ul>
+</li>
+<li><a href="#documentation">4. Documentation</a></li>
+<li><a href="#testing">5. Testing</a></li>
+<li><a href="#dev-ops">6. Dev Ops</a></li>
+<li><a href="#product-scope">Appendix A: Product Scope</a></li>
+<li><a href="#user-stories">Appendix B: User Stories</a></li>
+<li><a href="#use-cases">Appendix C: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-delete-person-2">C.1. Use case: Delete person</a></li>
+</ul>
+</li>
+<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
+<li><a href="#glossary">Appendix E: Glossary</a></li>
+<li><a href="#product-survey">Appendix F: Product Survey</a></li>
+<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<ul class="sectlevel2">
+<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
+<li><a href="#saving-data">G.3. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -188,7 +211,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>AddressBookParser</code> class to parse the user command.</p>
+<p><code>Logic</code> uses the <code>ClassroomParser</code> class to parse the user command.</p>
 </li>
 <li>
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
@@ -315,15 +338,8 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Classroom</co
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
 <div class="paragraph">
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-The undo/redo mechanism is facilitated by <code>Caretaker</code>, with each address book state saved as a <code>Memento</code>.</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>Caretaker</code>, with each classroom state saved as a <code>Memento</code>.
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; refactor-address-book-ken
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>mementos</code> and <code>statePointer</code>.
+It extends <code>Classroom</code> with an undo/redo history, stored internally as an <code>mementos</code> and <code>statePointer</code>.
 Additionally, it implements the following operations:</p>
 </div>
 <div class="ulist">
@@ -354,20 +370,6 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#saveState()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>mementos</code>, and the <code>statePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#saveState()</code>, causing another modified address book state to be saved into the <code>mementos</code>.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
 <p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the classroom. The <code>delete</code> command calls <code>Model#saveState()</code>, causing the modified state of the classroom after the <code>delete 5</code> command executes to be saved in the <code>mementos</code>, and the <code>statePointer</code> is shifted to the newly inserted classroom state.</p>
 </div>
 <div class="imageblock">
@@ -376,8 +378,7 @@ Step 2. The user executes <code>delete 5</code> command to delete the 5th person
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#saveState()</code>, causing another modified classroom state to be saved into the <code>mementos</code>.
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; refactor-address-book-ken</p>
+<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#saveState()</code>, causing another modified classroom state to be saved into the <code>mementos</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -391,17 +392,10 @@ Step 2. The user executes <code>delete 5</code> command to delete the 5th person
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-If a command fails its execution, it will not call <code>Model#saveState()</code>, so the address book state will not be saved into the <code>mementos</code>.
+If a command fails its execution, it will not call <code>Model#saveState()</code>, so the classroom state will not be saved into the <code>mementos</code>.
 </td>
 </tr>
 </table>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>If a command fails its execution, it will not call <code>Model#saveState()</code>, so the classroom state will not be saved into the <code>mementos</code>.
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; refactor-address-book-ken</p>
 </div>
 <div class="paragraph">
 <p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undo()</code>, which will shift the <code>statePointer</code> once to the left, pointing it to the previous classroom state, and restores the classroom to that state.</p>
@@ -453,17 +447,10 @@ The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) b
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedo()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, pointing to the latest classroom state, then there are no undone classroom states to restore. The <code>redo</code> command uses <code>Model#canRedo()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 </td>
 </tr>
 </table>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, pointing to the latest classroom state, then there are no undone classroom states to restore. The <code>redo</code> command uses <code>Model#canRedo()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; refactor-address-book-ken</p>
 </div>
 <div class="paragraph">
 <p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the classroom, such as <code>list</code>, will usually not call <code>Model#saveState()</code>, <code>Model#undo()</code> or <code>Model#redo()</code>. Thus, the <code>mementos</code> remains unchanged.</p>
@@ -474,14 +461,7 @@ If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, p
 </div>
 </div>
 <div class="paragraph">
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState()</code>. Since the <code>statePointer</code> is not pointing at the end of the <code>mementos</code>, all address book states after the <code>statePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState()</code>. Since the <code>statePointer</code> is not pointing at the end of the <code>mementos</code>, all classroom states after the <code>statePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; refactor-address-book-ken</p>
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState()</code>. Since the <code>statePointer</code> is not pointing at the end of the <code>mementos</code>, all classroom states after the <code>statePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -496,12 +476,11 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 <img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
 </div>
 </div>
-<div class="paragraph">
-<p>==== Design Considerations</p>
 </div>
-<div class="paragraph">
-<p>===== Aspect: How undo &amp; redo executes</p>
-</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -535,9 +514,9 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>===== Aspect: Data structure to support the undo/redo commands</p>
 </div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -548,7 +527,7 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 <p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
 </li>
 <li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
+<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedClassroom</code>.</p>
 </li>
 </ul>
 </div>
@@ -568,22 +547,24 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== [Proposed] Data Encryption</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
-<div class="paragraph">
-<p>=== Logging</p>
 </div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">[Implementation-Configuration]</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -612,33 +593,42 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 </li>
 </ul>
 </div>
-<div id="Implementation-Configuration" class="paragraph">
-<p>=== Configuration</p>
 </div>
+<div class="sect2">
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
-<div class="paragraph">
-<p>== Documentation</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Documentation.html">here</a>.</p>
 </div>
-<div class="paragraph">
-<p>== Testing</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Testing.html">here</a>.</p>
 </div>
-<div class="paragraph">
-<p>== Dev Ops</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
 </div>
-<div class="paragraph">
-<p>== Product Scope</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Target user profile</strong>:</p>
 </div>
@@ -670,9 +660,11 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 <div class="paragraph">
 <p><strong>Value proposition</strong>: manage students, deadlines, homework in one place.</p>
 </div>
-<div class="paragraph">
-<p>== User Stories</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
@@ -799,9 +791,11 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 <div class="paragraph">
 <p><em>{More to be added}</em></p>
 </div>
-<div class="paragraph">
-<p>== Use Cases</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>Teacher&#8217;s Notebook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
@@ -815,13 +809,13 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 <p>User requests to list persons</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>Classroom shows a list of persons</p>
 </li>
 <li>
 <p>User requests to delete a specific person in the list</p>
 </li>
 <li>
-<p>AddressBook deletes the person</p>
+<p>Classroom deletes the person</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -844,7 +838,7 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>3a1. Classroom shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -854,9 +848,8 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Use case: Delete person</p>
-</div>
+<div class="sect2">
+<h3 id="use-case-delete-person-2"><a class="link" href="#use-case-delete-person-2">C.1. Use case: Delete person</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -866,13 +859,13 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 <p>User requests to list persons</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>Classroom shows a list of persons</p>
 </li>
 <li>
 <p>User requests to delete a specific person in the list</p>
 </li>
 <li>
-<p>AddressBook deletes the person</p>
+<p>Classroom deletes the person</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -895,7 +888,7 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>3a1. Classroom shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -908,9 +901,12 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 <div class="paragraph">
 <p><em>{More to be added}</em></p>
 </div>
-<div class="paragraph">
-<p>== Non Functional Requirements</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
+<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -939,9 +935,11 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 <div class="paragraph">
 <p><em>{More to be added}</em></p>
 </div>
-<div class="paragraph">
-<p>== Glossary</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
+<div class="sectionbody">
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
@@ -954,9 +952,11 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 </dd>
 </dl>
 </div>
-<div class="paragraph">
-<p>== Product Survey</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Product Name</strong></p>
 </div>
@@ -989,9 +989,11 @@ Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState(
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>== Instructions for Manual Testing</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
 </div>
@@ -1007,9 +1009,8 @@ These instructions only provide a starting point for testers to work on; testers
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>=== Launch and Shutdown</p>
-</div>
+<div class="sect2">
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1045,9 +1046,9 @@ Expected: The most recent window size and location is retained.</p>
 <div class="paragraph">
 <p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
-<div class="paragraph">
-<p>=== Deleting a person</p>
 </div>
+<div class="sect2">
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1077,9 +1078,9 @@ Expected: Similar to previous.</p>
 <div class="paragraph">
 <p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
-<div class="paragraph">
-<p>=== Saving data</p>
 </div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1099,7 +1100,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 10:13:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 15:33:53 UTC</div></div></div></body></html>
