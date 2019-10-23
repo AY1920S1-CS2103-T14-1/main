@@ -176,6 +176,7 @@ public class ModelManager implements Model {
 
     /**
      * Returns an unmodifiable view of the list of {@code Student} backed by the internal list of
+     * {@code versionedClassroom}
      * {@code Caretaker}
      */
     @Override
@@ -199,6 +200,7 @@ public class ModelManager implements Model {
         requireNonNull(predicate);
         filteredAssignments.setPredicate(predicate);
     }
+
     //=========== Undo and Redo Operations =============================================================
 
     @Override

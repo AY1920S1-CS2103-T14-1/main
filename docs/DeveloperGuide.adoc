@@ -98,7 +98,7 @@ image::LogicClassDiagram.png[]
 *API* :
 link:{repoURL}/src/main/java/seedu/address/logic/Logic.java[`Logic.java`]
 
-.  `Logic` uses the `AddressBookParser` class to parse the user command.
+.  `Logic` uses the `ClassroomParser` class to parse the user command.
 .  This results in a `Command` object which is executed by the `LogicManager`.
 .  The command execution can affect the `Model` (e.g. adding a person).
 .  The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
@@ -158,7 +158,7 @@ This section describes some noteworthy details on how certain features are imple
 ==== Implementation
 
 The undo/redo mechanism is facilitated by `Caretaker`, with each classroom state saved as a `Memento`.
-It extends `AddressBook` with an undo/redo history, stored internally as an `mementos` and `statePointer`.
+It extends `Classroom` with an undo/redo history, stored internally as an `mementos` and `statePointer`.
 Additionally, it implements the following operations:
 
 * `Caretaker#saveState()` -- Saves the current classroom state in its history.
@@ -208,6 +208,7 @@ image::UndoRedoState4.png[]
 
 Step 6. The user executes `clear`, which calls `Model#saveState()`. Since the `statePointer` is not pointing at the end of the `mementos`, all classroom states after the `statePointer` will be purged. We designed it this way because it no longer makes sense to redo the `add n/David ...` command. This is the behavior that most modern desktop applications follow.
 
+
 image::UndoRedoState5.png[]
 
 The following activity diagram summarizes what happens when a user executes a new command:
@@ -230,11 +231,24 @@ image::CommitActivityDiagram.png[]
 
 * **Alternative 1 (current choice):** Use a list to store the history of classroom states.
 ** Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.
-** Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both `HistoryManager` and `VersionedAddressBook`.
+** Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both `HistoryManager` and `VersionedClassroom`.
 * **Alternative 2:** Use `HistoryManager` for undo/redo
 ** Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.
 ** Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as `HistoryManager` now needs to do two different things.
 // end::undoredo[]
+
+// tag::Assignment[]
+=== Assignment feature
+==== Implementation
+
+The Assignment class works with high similarity to the Student Class implemented.
+A UniqueList of Assignments exist in the Classroom Class alongside the UniqueList of Students, and serve to keep track of assignments for a particular Classroom.
+Additionally, it implements the following operations through Commands that affect UniqueAssignmentList:
+
+* `UniqueAssignmentList#setAssignment()` -- Adds a new Assignment object to the UniqueAssignmentList.
+* `UniqueAssignmentList#remove()` -- Removes an Assignment object from the UniqueAssignmentList.
+* `Assignment#setGrades()` -- Updates the AssignmentGrade class of the Assignment with user input.
+// end::Assignment[]
 
 // tag::dataencryption[]
 === [Proposed] Data Encryption
@@ -346,9 +360,9 @@ _{More to be added}_
 *MSS*
 
 1.  User requests to list persons
-2.  AddressBook shows a list of persons
+2.  Classroom shows a list of persons
 3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+4.  Classroom deletes the person
 +
 Use case ends.
 
@@ -362,7 +376,7 @@ Use case ends.
 * 3a. The given index is invalid.
 +
 [none]
-** 3a1. AddressBook shows an error message.
+** 3a1. Classroom shows an error message.
 +
 Use case resumes at step 2.
 
@@ -371,9 +385,9 @@ Use case resumes at step 2.
 *MSS*
 
 1.  User requests to list persons
-2.  AddressBook shows a list of persons
+2.  Classroom shows a list of persons
 3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+4.  Classroom deletes the person
 +
 Use case ends.
 
@@ -387,7 +401,7 @@ Use case ends.
 * 3a. The given index is invalid.
 +
 [none]
-** 3a1. AddressBook shows an error message.
+** 3a1. Classroom shows an error message.
 +
 Use case resumes at step 2.
 

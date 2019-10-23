@@ -128,7 +128,6 @@ public class Classroom implements ReadOnlyClassroom {
         requireNonNull(editedAssignment);
 
         assignments.setAssignment(target, editedAssignment);
-
     }
 
     /**
