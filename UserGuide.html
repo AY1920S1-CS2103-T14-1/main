@@ -105,9 +105,27 @@ Format: editstudent c/CLASS INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="updating-update"><a class="link" href="#updating-update">3.3. Updating: update</a></h3>
+<h3 id="upload-upload"><a class="link" href="#upload-upload">3.3. Upload: upload</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="students-display-picture"><a class="link" href="#students-display-picture">3.4. Students' display picture</a></h3>
+<div class="paragraph">
+<p>Uploads a display picture for existing student in student list</p>
+</div>
+<div class="paragraph">
+<p>Format: upload INDEX</p>
+</div>
+<div class="paragraph">
+<p>Examples:
+* upload 2
+* upload 3</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="updating-update"><a class="link" href="#updating-update">3.5. Updating: update</a></h3>
 <div class="sect3">
-<h4 id="students-grades-for-individual-assignments"><a class="link" href="#students-grades-for-individual-assignments">3.3.1. Students’ grades for individual assignments</a></h4>
+<h4 id="students-grades-for-individual-assignments"><a class="link" href="#students-grades-for-individual-assignments">3.5.1. Students’ grades for individual assignments</a></h4>
 <div class="paragraph">
 <p>Edits the grades for students of the specified assignment index. Additional arguments will be dropped and too few
 arguments will be prompted to the user.<br>
@@ -120,16 +138,16 @@ Format: editstudent c/CLASS INDEX g/GRADE_ONE GRADE_TWO GRADE_THREE &#8230;&#820
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-list"><a class="link" href="#listing-list">3.4. Listing: list</a></h3>
+<h3 id="listing-list"><a class="link" href="#listing-list">3.6. Listing: list</a></h3>
 <div class="sect3">
-<h4 id="class-list"><a class="link" href="#class-list">3.4.1. Class list</a></h4>
+<h4 id="class-list"><a class="link" href="#class-list">3.6.1. Class list</a></h4>
 <div class="paragraph">
 <p>Shows a list of all classes taken by the user.<br>
 Format: list class</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="student-list"><a class="link" href="#student-list">3.4.2. Student list</a></h4>
+<h4 id="student-list"><a class="link" href="#student-list">3.6.2. Student list</a></h4>
 <div class="paragraph">
 <p>Shows a list of all students in a particular class of the user.<br>
 Format: list [c/CLASS] students</p>
@@ -140,7 +158,7 @@ Format: list [c/CLASS] students</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="assignment-list"><a class="link" href="#assignment-list">3.4.3. Assignment list</a></h4>
+<h4 id="assignment-list"><a class="link" href="#assignment-list">3.6.3. Assignment list</a></h4>
 <div class="paragraph">
 <p>Shows a list of all assignments of classes of the user.<br>
 Format: listassignments c/CLASS</p>
@@ -153,16 +171,16 @@ Format: listassignments c/CLASS</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sending-reminders-to-teachers"><a class="link" href="#sending-reminders-to-teachers">3.5. Sending reminders to teachers</a></h3>
+<h3 id="sending-reminders-to-teachers"><a class="link" href="#sending-reminders-to-teachers">3.7. Sending reminders to teachers</a></h3>
 <div class="paragraph">
 <p>Sends system notification to user 10 minutes before event (assumes user keeps program running continuously).<br>
 Format: none, reminder should come automatically</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-find"><a class="link" href="#locating-find">3.6. Locating: find</a></h3>
+<h3 id="locating-find"><a class="link" href="#locating-find">3.8. Locating: find</a></h3>
 <div class="sect3">
-<h4 id="students-by-name"><a class="link" href="#students-by-name">3.6.1. Students by name</a></h4>
+<h4 id="students-by-name"><a class="link" href="#students-by-name">3.8.1. Students by name</a></h4>
 <div class="paragraph">
 <p>Find students whose name matches a given keyword.<br>
 Format: findstudent STUDENT_NAME</p>
@@ -175,7 +193,7 @@ Format: findstudent STUDENT_NAME</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="assignments-by-name"><a class="link" href="#assignments-by-name">3.7. Assignments by name</a></h3>
+<h3 id="assignments-by-name"><a class="link" href="#assignments-by-name">3.9. Assignments by name</a></h3>
 <div class="paragraph">
 <p>Find assignments which name matches given keyword.<br>
 Format: find [c/CLASS] as/ASSIGNMENT</p>
@@ -187,9 +205,9 @@ Format: find [c/CLASS] as/ASSIGNMENT</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-delete"><a class="link" href="#deleting-delete">3.8. Deleting: delete</a></h3>
+<h3 id="deleting-delete"><a class="link" href="#deleting-delete">3.10. Deleting: delete</a></h3>
 <div class="sect3">
-<h4 id="deleting-student"><a class="link" href="#deleting-student">3.8.1. Deleting student</a></h4>
+<h4 id="deleting-student"><a class="link" href="#deleting-student">3.10.1. Deleting student</a></h4>
 <div class="paragraph">
 <p>Deletes the student in the index from the specified class list.
 Format: delete c/CLASS s/INDEX</p>
@@ -200,7 +218,7 @@ Format: delete c/CLASS s/INDEX</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-assignment"><a class="link" href="#deleting-assignment">3.8.2. Deleting assignment</a></h4>
+<h4 id="deleting-assignment"><a class="link" href="#deleting-assignment">3.10.2. Deleting assignment</a></h4>
 <div class="paragraph">
 <p>Deletes the assignment in the index from the specified class list.
 Format: deleteassignment c/CLASS INDEX</p>
@@ -212,28 +230,28 @@ Format: deleteassignment c/CLASS INDEX</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-undo"><a class="link" href="#undo-undo">3.9. Undo: undo</a></h3>
+<h3 id="undo-undo"><a class="link" href="#undo-undo">3.11. Undo: undo</a></h3>
 <div class="paragraph">
 <p>Restores application to the state before previous command was executed.
 Format: undo</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="redo-redo"><a class="link" href="#redo-redo">3.10. Redo: redo</a></h3>
+<h3 id="redo-redo"><a class="link" href="#redo-redo">3.12. Redo: redo</a></h3>
 <div class="paragraph">
 <p>Restores application to the state before previous undo command was executed.
 Format: redo</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="history"><a class="link" href="#history">3.11. History</a></h3>
+<h3 id="history"><a class="link" href="#history">3.13. History</a></h3>
 <div class="paragraph">
 <p>Generates user’s last typed command.<br>
 Format: up arrow key brings up last typed command into user input box.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="generate-file-generate"><a class="link" href="#generate-file-generate">3.12. Generate file: generate</a></h3>
+<h3 id="generate-file-generate"><a class="link" href="#generate-file-generate">3.14. Generate file: generate</a></h3>
 <div class="paragraph">
 <p>Generate test score of class for every test into csv file. This will be in a more readable format for users to see.<br>
 Format: generate CLASS_NAME</p>
@@ -245,14 +263,14 @@ Format: generate CLASS_NAME</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">3.13. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">3.15. Saving data</a></h3>
 <div class="paragraph">
 <p>The programme automatically saves the data in a txt file whenever a command is issued.<br>
 Format: none, saving data will be done automatically</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-programme-exit"><a class="link" href="#exiting-the-programme-exit">3.14. Exiting the programme: exit</a></h3>
+<h3 id="exiting-the-programme-exit"><a class="link" href="#exiting-the-programme-exit">3.16. Exiting the programme: exit</a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: exit</p>
@@ -316,4 +334,4 @@ e.g. generate 4C</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 09:48:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 05:21:48 UTC</div></div></div></body></html>
