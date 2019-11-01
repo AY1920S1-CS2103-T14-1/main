@@ -41,10 +41,10 @@
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Command Format</strong>
-* Words in UPPER_CASE are the parameters supplied by the user e.g. in addclass cn/CLASS, CLASS is a parameter which can be used as addclass cn/4C.
-* Items in square brackets are optional e.g. n/NAME [m/MEDICAL_CONDITION] can be used as n/John Doe m/Sinus or n/John Doe.
-* Items with … after them can be used multiple times including zero times e.g. [m/MEDICAL_CONDITIONS]&#8230;&#8203; can be used as   (i.e. 0 times), m/Sinus, m/Sinus m/Asthma etc.
+<p><strong>Command Format</strong><br>
+* Words in UPPER_CASE are the parameters supplied by the user e.g. in addclass cn/CLASS, CLASS is a parameter which can be used as addclass cn/4C.<br>
+* Items in square brackets are optional e.g. n/NAME [m/MEDICAL_CONDITION] can be used as n/John Doe m/Sinus or n/John Doe.<br>
+* Items with … after them can be used multiple times including zero times e.g. [m/MEDICAL_CONDITIONS]&#8230;&#8203; can be used as   (i.e. 0 times), m/Sinus, m/Sinus m/Asthma etc.<br>
 * Parameters can be in any order e.g. if the command specifies n/NAME i/INDEX, n/NAME, i/INDEX is also acceptable</p>
 </div>
 </div>
@@ -86,14 +86,14 @@ Format: addstudent n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS pp/PARENT_PHONE_NUMBE
 <div class="paragraph">
 <p>Examples:<br>
 * addstudent n/John Doe p/91234567 e/john.doe@gmail.com a/John Street, Block 123, #01-01 pp/92222222<br>
-* addstudent n/Jane Doe p/98765432 e/jane.doe@gmail.com a/Jane Street, Block 123, #10-10 pp/93333333</p>
+* addstudent n/Jane Doe p/98765432 e/jane.doe@gmail.com a/Jane Street, Block 123, #10-10 pp/93333333 m/Sinus</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="assignments"><a class="link" href="#assignments">3.2.3. Assignments</a></h4>
 <div class="paragraph">
 <p>Adds an assignment to the assignment list of current class.<br>
-Format: addassignment as/ASSIGNMENT d/DEADLINE</p>
+Format: addassignment as/ASSIGNMENT d/DEADLINE. Deadline must be in dd/MM/yyy HHmm format.</p>
 </div>
 <div class="paragraph">
 <p>Examples:<br>
@@ -105,7 +105,7 @@ Format: addassignment as/ASSIGNMENT d/DEADLINE</p>
 <h4 id="lessons"><a class="link" href="#lessons">3.2.4. Lessons</a></h4>
 <div class="paragraph">
 <p>Adds a lesson to the lesson list in the notebook.<br>
-Format: addlesson l/LESSON st/START_TIME et/ET_TIME</p>
+Format: addlesson l/LESSON st/START_TIME et/ET_TIME. Start time and end time must be in dd/MM/yyyy HHmm format.</p>
 </div>
 <div class="paragraph">
 <p>Examples:<br>
@@ -144,10 +144,8 @@ Format: editlesson LESSON_INDEX day/DAY_INDEX [l/LESSON_NAME] [st/START_TIME] [e
 </div>
 <div class="sect2">
 <h3 id="upload-upload"><a class="link" href="#upload-upload">3.4. Upload: upload</a></h3>
-
-</div>
-<div class="sect2">
-<h3 id="students-display-picture"><a class="link" href="#students-display-picture">3.5. Students' display picture</a></h3>
+<div class="sect3">
+<h4 id="students-display-picture"><a class="link" href="#students-display-picture">3.4.1. Students' display picture</a></h4>
 <div class="paragraph">
 <p>Uploads a display picture for existing student in student list in current classroom.</p>
 </div>
@@ -160,10 +158,11 @@ Format: editlesson LESSON_INDEX day/DAY_INDEX [l/LESSON_NAME] [st/START_TIME] [e
 * upload 3</p>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="updating-update"><a class="link" href="#updating-update">3.6. Updating: update</a></h3>
+<h3 id="updating-update"><a class="link" href="#updating-update">3.5. Updating: update</a></h3>
 <div class="sect3">
-<h4 id="students-grades-for-individual-assignments"><a class="link" href="#students-grades-for-individual-assignments">3.6.1. Students’ grades for individual assignments</a></h4>
+<h4 id="students-grades-for-individual-assignments"><a class="link" href="#students-grades-for-individual-assignments">3.5.1. Students’ grades for individual assignments</a></h4>
 <div class="paragraph">
 <p>Edits the grades for students of the specified assignment index of current class. Arguments fewer than or more than the number of
 students will be prompted to the user. Use s/STUDENT_INDEX to change the chosen student&#8217;s grades.<br>
@@ -178,9 +177,9 @@ Format (Individual): grades as/ASSIGNMENT_INDEX s/STUDENT_INDEX g/GRADE</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-list"><a class="link" href="#listing-list">3.7. Listing: list</a></h3>
+<h3 id="listing-list"><a class="link" href="#listing-list">3.6. Listing: list</a></h3>
 <div class="sect3">
-<h4 id="student-list"><a class="link" href="#student-list">3.7.1. Student list</a></h4>
+<h4 id="student-list"><a class="link" href="#student-list">3.6.1. Student list</a></h4>
 <div class="paragraph">
 <p>Shows a list of all students in the current class of the user.<br>
 Format: liststudents</p>
@@ -191,7 +190,7 @@ Format: liststudents</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="assignment-list"><a class="link" href="#assignment-list">3.7.2. Assignment list</a></h4>
+<h4 id="assignment-list"><a class="link" href="#assignment-list">3.6.2. Assignment list</a></h4>
 <div class="paragraph">
 <p>Shows a list of all assignments in the current class of the user.<br>
 Format: listassignments<br></p>
@@ -203,16 +202,16 @@ Format: listassignments<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sending-reminders-to-teachers"><a class="link" href="#sending-reminders-to-teachers">3.8. Sending reminders to teachers</a></h3>
+<h3 id="sending-reminders-to-teachers"><a class="link" href="#sending-reminders-to-teachers">3.7. Sending reminders to teachers</a></h3>
 <div class="paragraph">
-<p>Sends system notification to user 10 minutes before event (assumes user keeps program running continuously).<br>
+<p>Sends system notification to user at the time of the event (assumes user keeps program running continuously).<br>
 Format: none, reminder should come automatically</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-find"><a class="link" href="#locating-find">3.9. Locating: find</a></h3>
+<h3 id="locating-find"><a class="link" href="#locating-find">3.8. Locating: find</a></h3>
 <div class="sect3">
-<h4 id="students-by-name"><a class="link" href="#students-by-name">3.9.1. Students by name</a></h4>
+<h4 id="students-by-name"><a class="link" href="#students-by-name">3.8.1. Students by name</a></h4>
 <div class="paragraph">
 <p>Find students whose name matches a given keyword in current classroom.<br>
 Format: findstudent STUDENT_NAME<br></p>
@@ -225,9 +224,9 @@ Format: findstudent STUDENT_NAME<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="retrieving-get"><a class="link" href="#retrieving-get">3.10. Retrieving: get</a></h3>
+<h3 id="retrieving-get"><a class="link" href="#retrieving-get">3.9. Retrieving: get</a></h3>
 <div class="sect3">
-<h4 id="students-grades-by-student-index"><a class="link" href="#students-grades-by-student-index">3.10.1. Students grades by student index</a></h4>
+<h4 id="students-grades-by-student-index"><a class="link" href="#students-grades-by-student-index">3.9.1. Students grades by student index</a></h4>
 <div class="paragraph">
 <p>Finds all the grades of all the assignments of the student chosen.<br>
 Format: get s/STUDENT_INDEX</p>
@@ -239,11 +238,11 @@ Format: get s/STUDENT_INDEX</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-delete"><a class="link" href="#deleting-delete">3.11. Deleting: delete</a></h3>
+<h3 id="deleting-delete"><a class="link" href="#deleting-delete">3.10. Deleting: delete</a></h3>
 <div class="sect3">
-<h4 id="deleting-student"><a class="link" href="#deleting-student">3.11.1. Deleting student</a></h4>
+<h4 id="deleting-student"><a class="link" href="#deleting-student">3.10.1. Deleting student</a></h4>
 <div class="paragraph">
-<p>Deletes the student in the index from the current classroom.
+<p>Deletes the student in the index from the current classroom.<br>
 Format: deletestudent STUDENT_INDEX</p>
 </div>
 <div class="paragraph">
@@ -252,9 +251,9 @@ Format: deletestudent STUDENT_INDEX</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-assignment"><a class="link" href="#deleting-assignment">3.11.2. Deleting assignment</a></h4>
+<h4 id="deleting-assignment"><a class="link" href="#deleting-assignment">3.10.2. Deleting assignment</a></h4>
 <div class="paragraph">
-<p>Deletes the assignment in the index from the current classroom.
+<p>Deletes the assignment in the index from the current classroom.<br>
 Format: deleteassignment ASSIGNMENT_INDEX</p>
 </div>
 <div class="paragraph">
@@ -263,33 +262,33 @@ Format: deleteassignment ASSIGNMENT_INDEX</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-assignment-2"><a class="link" href="#deleting-assignment-2">3.11.3. Deleting assignment</a></h4>
+<h4 id="deleting-assignment-2"><a class="link" href="#deleting-assignment-2">3.10.3. Deleting assignment</a></h4>
 <div class="paragraph">
-<p>Deletes the assignment in the index from the current classroom.
-Format: deleteassignment ASSIGNMENT_INDEX</p>
+<p>Deletes the lesson in the index from the teacher&#8217;s notebook.
+Format: deletelesson LESSON_INDEX</p>
 </div>
 <div class="paragraph">
 <p>Examples:<br>
-* deleteassignment 3</p>
+* deletelesson 1</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="history"><a class="link" href="#history">3.12. History</a></h3>
+<h3 id="history"><a class="link" href="#history">3.11. History</a></h3>
 <div class="paragraph">
 <p>Generates user’s last typed command.<br>
 Format: up arrow key brings up last typed command into user input box.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">3.13. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">3.12. Saving data</a></h3>
 <div class="paragraph">
 <p>The programme automatically saves the data in a txt file whenever a command is issued.<br>
 Format: none, saving data will be done automatically</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-programme-exit"><a class="link" href="#exiting-the-programme-exit">3.14. Exiting the programme: exit</a></h3>
+<h3 id="exiting-the-programme-exit"><a class="link" href="#exiting-the-programme-exit">3.13. Exiting the programme: exit</a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: exit</p>
@@ -371,4 +370,4 @@ e.g. deletelesson 5</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 21:34:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 02:58:27 UTC</div></div></div></body></html>
