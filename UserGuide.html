@@ -42,7 +42,7 @@
 <div class="content">
 <div class="paragraph">
 <p><strong>Command Format</strong><br>
-* Words in UPPER_CASE are the parameters supplied by the user e.g. in addclass cn/CLASS, CLASS is a parameter which can be used as addclass cn/4C.<br>
+* Words in UPPER_CASE are the parameters supplied by the user e.g. in addclass c/CLASS, CLASS is a parameter which can be used as addclass c/4C.<br>
 * Items in square brackets are optional e.g. n/NAME [m/MEDICAL_CONDITION] can be used as n/John Doe m/Sinus or n/John Doe.<br>
 * Items with … after them can be used multiple times including zero times e.g. [m/MEDICAL_CONDITIONS]&#8230;&#8203; can be used as   (i.e. 0 times), m/Sinus, m/Sinus m/Asthma etc.<br>
 * Parameters can be in any order e.g. if the command specifies n/NAME i/INDEX, n/NAME, i/INDEX is also acceptable</p>
@@ -69,12 +69,12 @@ Format: setclass c/CLASSROOM_NAME</p>
 <h4 id="classes-2"><a class="link" href="#classes-2">3.2.1. Classes</a></h4>
 <div class="paragraph">
 <p>Adds a class to the class list.<br>
-Format: addclass cn/CLASS</p>
+Format: addclass c/CLASS</p>
 </div>
 <div class="paragraph">
 <p>Examples:<br>
-* addclass cn/4C<br>
-* addclass cn/3E5</p>
+* addclass c/4C<br>
+* addclass c/3E5</p>
 </div>
 </div>
 <div class="sect3">
@@ -222,6 +222,18 @@ Format: findstudent STUDENT_NAME<br></p>
 * findstudent Jane Doe</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="assignments-by-assignment-name"><a class="link" href="#assignments-by-assignment-name">3.8.2. Assignments by assignment name</a></h4>
+<div class="paragraph">
+<p>Find assignments whose assignment name matches a given keyword in current classroom.<br>
+Format: findassignment ASSIGNMENT_NAME<br></p>
+</div>
+<div class="paragraph">
+<p>Examples:<br>
+* findassignment Math Homework<br>
+* findassignment English Assignment</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="retrieving-get"><a class="link" href="#retrieving-get">3.9. Retrieving: get</a></h3>
@@ -310,6 +322,14 @@ Format: exit</p>
 <div class="ulist">
 <ul>
 <li>
+<p>Set Class: setclass n/CLASS<br>
+e.g. setclass c/4C</p>
+</li>
+<li>
+<p>Add Class: addclass n/CLASS<br>
+e.g. addclass c/4C</p>
+</li>
+<li>
 <p>Add Student: addstudent n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS pp/PARENT_PHONE_NUMBER [m/MEDICAL_CONDITIONS] [t/TAG] …<br>
 e.g. addstudent n/John Doe p/91234567 e/john_doe@gmail.com pp/98765432</p>
 </li>
@@ -370,4 +390,4 @@ e.g. deletelesson 5</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 13:16:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 13:17:28 UTC</div></div></div></body></html>
