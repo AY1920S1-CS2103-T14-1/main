@@ -156,20 +156,20 @@
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>Caretaker</code>, with each classroom state saved as a <code>Memento</code>.
-It extends <code>Classroom</code> with an undo/redo history, stored internally as an <code>mementos</code> and <code>statePointer</code>.
+<p>The undo/redo mechanism is facilitated by <code>Caretaker</code>, with each notebook state saved as a <code>Memento</code>.
+It extends <code>Notebook</code> with an undo/redo history, stored internally as an <code>mementos</code> and <code>statePointer</code>.
 Additionally, it implements the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Caretaker#saveState()</code>&#8201;&#8212;&#8201;Saves the current classroom state in its history.</p>
+<p><code>Caretaker#saveState()</code>&#8201;&#8212;&#8201;Saves the current notebook state in its history.</p>
 </li>
 <li>
-<p><code>Caretaker#undo()</code>&#8201;&#8212;&#8201;Restores the previous classroom state from its history by undoing the previous command.</p>
+<p><code>Caretaker#undo()</code>&#8201;&#8212;&#8201;Restores the previous notebook state from its history by undoing the previous command.</p>
 </li>
 <li>
-<p><code>Caretaker#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone classroom state from its history by redoing the previously undone command.</p>
+<p><code>Caretaker#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone notebook state from its history by redoing the previously undone command.</p>
 </li>
 </ul>
 </div>
@@ -180,7 +180,7 @@ Additionally, it implements the following operations:</p>
 <p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>Caretaker</code> will be initialized with the initial classroom state, and the <code>statePointer</code> pointing to that single classroom state.</p>
+<p>Step 1. The user launches the application for the first time. The <code>Caretaker</code> will be initialized with the initial notebook state, and the <code>statePointer</code> pointing to that single notebook state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -188,7 +188,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>deletestudent 5</code> command to delete the 5th student in the classroom. The <code>delete</code> command calls <code>Model#saveState()</code>, causing the modified state of the classroom after the <code>delete 5</code> command executes to be saved in the <code>mementos</code>, and the <code>statePointer</code> is shifted to the newly inserted classroom state.</p>
+<p>Step 2. The user executes <code>deletestudent 5</code> command to delete the 5th student in the current classroom. The <code>deletestudent</code> command calls <code>Model#saveState()</code>, causing the modified state of the notebook after the <code>deletestudent 5</code> command executes to be saved in the <code>mementos</code>, and the <code>statePointer</code> is shifted to the newly inserted notebook state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -196,7 +196,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>addstudent n/David &#8230;&#8203;</code> to add a new student. The <code>addstudent</code> command also calls <code>Model#saveState()</code>, causing another modified classroom state to be saved into the <code>mementos</code>.</p>
+<p>Step 3. The user executes <code>addstudent n/David &#8230;&#8203;</code> to add a new student. The <code>addstudent</code> command also calls <code>Model#saveState()</code>, causing another modified notebook state to be saved into the <code>mementos</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -210,13 +210,13 @@ Additionally, it implements the following operations:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call <code>Model#saveState()</code>, so the classroom state will not be saved into the <code>mementos</code>.
+If a command fails its execution, it will not call <code>Model#saveState()</code>, so the notebook state will not be saved into the <code>mementos</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the student was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undo()</code>, which will shift the <code>statePointer</code> once to the left, pointing it to the previous classroom state, and restores the classroom to that state.</p>
+<p>Step 4. The user now decides that adding the student was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undo()</code>, which will shift the <code>statePointer</code> once to the left, pointing it to the previous notebook state, and restores the notebook to that state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -230,7 +230,7 @@ If a command fails its execution, it will not call <code>Model#saveState()</code
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>statePointer</code> is at index 0, pointing to the initial classroom state, then there are no previous classroom states to restore. The <code>undo</code> command uses <code>Model#canUndo()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+If the <code>statePointer</code> is at index 0, pointing to the initial notebook state, then there are no previous notebook states to restore. The <code>undo</code> command uses <code>Model#canUndo()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
 </td>
 </tr>
 </table>
@@ -256,7 +256,7 @@ The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) b
 </table>
 </div>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redo()</code>, which shifts the <code>statePointer</code> once to the right, pointing to the previously undone state, and restores the classroom to that state.</p>
+<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redo()</code>, which shifts the <code>statePointer</code> once to the right, pointing to the previously undone state, and restores the notebook to that state.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -265,7 +265,7 @@ The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) b
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, pointing to the latest classroom state, then there are no undone classroom states to restore. The <code>redo</code> command uses <code>Model#canRedo()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, pointing to the latest notebook state, then there are no undone notebook states to restore. The <code>redo</code> command uses <code>Model#canRedo()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 </td>
 </tr>
 </table>
@@ -279,7 +279,7 @@ If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, p
 </div>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState()</code>. Since the <code>statePointer</code> is not pointing at the end of the <code>mementos</code>, all classroom states after the <code>statePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState()</code>. Since the <code>statePointer</code> is not pointing at the end of the <code>mementos</code>, all notebook states after the <code>statePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>addstudent n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -302,7 +302,7 @@ If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, p
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire classroom.</p>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire notebook.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -338,14 +338,14 @@ If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, p
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of classroom states.</p>
+<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of notebook states.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
 </li>
 <li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedClassroom</code>.</p>
+<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>Caretaker</code>.</p>
 </li>
 </ul>
 </div>
@@ -384,4 +384,4 @@ If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, p
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 07:14:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 07:16:32 UTC</div></div></div></body></html>
