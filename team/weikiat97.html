@@ -141,214 +141,250 @@ The implementation was very challenging as one command had to be suited for vari
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-redo"><a class="link" href="#undo-redo">Undo Redo</a></h3>
+<h3 id="students"><a class="link" href="#students">Students</a></h3>
 <div class="paragraph">
-<p>Calling undo will undo the previous command that changes the state of the notebook.
-Commands that do not change the notebook will not be undone (e.g. findstudent, listassignments etc.).
-Undo will only work if there is a previous command that is executed.</p>
+<p>Students are contained within each class. There are several fields in each student as shown below:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>Name - Prefix: n/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Names must be alphanumerical, and cannot be empty.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Email - Prefix: e/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Emails must be in the format <a href="mailto:alphanumeric@example.com">alphanumeric@example.com</a> e.g. <a href="mailto:amanda@example.com">amanda@example.com</a>, <a href="mailto:ilovebubbletea@gmail.com">ilovebubbletea@gmail.com</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Phone - Prefix: p/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Phone numbers must be at least 3 digits, and must only contain digits.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Address - Prefix: a/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Address must be alphanumerical, and cannot be empty.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Parent Phone - Prefix: pp/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Parent phone numbers must be at least 3 digits, and must only contain digits.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Medical Conditions - Prefix: m/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Medical conditions must be alphanumerical. This is an optional field.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tags - Prefix: t/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Tags must be alphanumerical. This is an optional field that can be used multiple times.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>DisplayPicture - Prefix: none</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Display pictures must be in PNG file format. A default display picture is set for each student.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
-<p>Calling redo will redo any of the previous undo commands that were executed.
-Redo will only work if there is a previous undo command that is executed.<br></p>
+<p><strong>CONDITIONS</strong><br>
+* Students in the class must not have the same name. Other fields can be the same as we expect that there might be
+siblings sharing the same fields (e.g. share the same phone and email, stay in the same house etc.)
+* Phone and parent phone must not be the same. We expect that the students now have a phone.</p>
 </div>
-<div class="paragraph">
-<p>Format: undo / redo</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-add"><a class="link" href="#adding-add">Adding: add</a></h3>
-<div class="sect3">
-<h4 id="classes"><a class="link" href="#classes">Classes</a></h4>
-<div class="paragraph">
-<p>Adds a class to the class list.<br>
-Format: addclass c/CLASS</p>
-</div>
-<div class="paragraph">
-<p>Examples:<br>
-* addclass c/4C<br>
-* addclass c/3E5</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="students"><a class="link" href="#students">Students</a></h4>
-<div class="paragraph">
-<p>Adds a student to the student list of current class.<br>
-Format: addstudent n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS pp/PARENT_PHONE_NUMBER [m/MEDICAL_CONDITIONS] [t/TAG]&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Examples:<br>
-* addstudent n/John Doe p/91234567 e/john.doe@gmail.com a/John Street, Block 123, #01-01 pp/92222222<br>
-* addstudent n/Jane Doe p/98765432 e/jane.doe@gmail.com a/Jane Street, Block 123, #10-10 pp/93333333 m/Sinus</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="assignments"><a class="link" href="#assignments">Assignments</a></h4>
-<div class="paragraph">
-<p>Adds an assignment to the assignment list of current class.<br>
-Format: addassignment as/ASSIGNMENT d/DEADLINE. Deadline must be in dd/MM/yyy HHmm format.</p>
-</div>
-<div class="paragraph">
-<p>Examples:<br>
-* addassignment as/CS2103 Team Project d/31/10/2019 1800<br>
-* addassignment as/CS2103 Individual Project d/30/09/2019 2000</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="lessons"><a class="link" href="#lessons">Lessons</a></h4>
-<div class="paragraph">
-<p>Adds a lesson to the lesson list in the notebook.<br>
-Format: addlesson l/LESSON st/START_TIME et/ET_TIME. Start time and end time must be in dd/MM/yyyy HHmm format.</p>
-</div>
-<div class="paragraph">
-<p>Examples:<br>
-* addlesson l/4E3 Math st/31/10/2019 1800 et/31/10/2019 2000<br>
-* addlesson l/4C3 Camp st/30/09/2019 1200 et/01/10/2019 1400</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-edit"><a class="link" href="#editing-edit">Editing: edit</a></h3>
-<div class="sect3">
-<h4 id="students-information"><a class="link" href="#students-information">Students’ information</a></h4>
-<div class="paragraph">
-<p>Edits an existing student in the student list of current class.<br>
-Format: editstudent STUDENT_INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]<br>
-[m/MEDICAL_CONDITIONS], [t/TAG]&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Examples:<br>
-* editstudent 2 p/91111111<br>
-* editstudent 4 e/new_email@gmail.com</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="lessons-information"><a class="link" href="#lessons-information">Lessons’ information</a></h4>
-<div class="paragraph">
-<p>Edits an existing lesson in the lesson list.<br>
-Format: editlesson LESSON_INDEX day/DAY_OF_THE_WEEK_INDEX [l/LESSON_NAME] [st/START_TIME] [et/END_TIME]</p>
-</div>
-<div class="paragraph">
-<p>Examples:<br>
-* editlesson 2 day/2 l/4C3 Math<br>
-* editlesson 4 day/3 st/01/11/2019 1200 et/01/11/2019 1400</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-list"><a class="link" href="#listing-list">Listing: list</a></h3>
-<div class="sect3">
-<h4 id="student-list"><a class="link" href="#student-list">Student list</a></h4>
-<div class="paragraph">
-<p>Shows a list of all students in the current class of the user.<br>
-Format: liststudents</p>
-</div>
-<div class="paragraph">
-<p>Examples:<br>
-* liststudents</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="assignment-list"><a class="link" href="#assignment-list">Assignment list</a></h4>
+<h4 id="adding-addstudent"><a class="link" href="#adding-addstudent">Adding: addstudent</a></h4>
 <div class="paragraph">
-<p>Shows a list of all assignments in the current class of the user.<br>
-Assignments are sorted by order of their deadline, from earliest to latest.<br>
-Format: listassignments<br></p>
-</div>
-<div class="paragraph">
-<p>Examples:<br>
-* listassignments</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="sending-reminders-to-teachers"><a class="link" href="#sending-reminders-to-teachers">Sending reminders to teachers</a></h3>
-<div class="paragraph">
-<p>Sends system notification to user at the time of the lesson (assumes user keeps program running continuously).<br>
-Format: none, reminder should come automatically</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-delete"><a class="link" href="#deleting-delete">Deleting: delete</a></h3>
-<div class="sect3">
-<h4 id="deleting-student"><a class="link" href="#deleting-student">Deleting student</a></h4>
-<div class="paragraph">
-<p>Deletes the student in the index from the current classroom.<br>
-Format: deletestudent STUDENT_INDEX</p>
+<p>Adds a student to the student list of the current class.<br>
+Format: <code>addstudent n/NAME e/EMAIL p/PHONE a/ADDRESS pp/PARENT_PHONE [m/MEDICAL_CONDITIONS]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:<br>
-* deletestudent 3</p>
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addstudent n/John Doe e/johndoe@gmail.com p/81930042 a/Jurong East Avenue 3 Blk 639 #12-02 pp/84295512 m/Sinus</code></p>
+</li>
+<li>
+<p><code>addstudent n/Jane Doe e/janedoe@hotmail.com p/91823051 a/Tampinese Avenue 5 Blk 772 #02-84 pp/99811241 t/PE Rep t/Naughty</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-assignment"><a class="link" href="#deleting-assignment">Deleting assignment</a></h4>
+<h4 id="editing-editstudent"><a class="link" href="#editing-editstudent">Editing: editstudent</a></h4>
 <div class="paragraph">
-<p>Deletes the assignment in the index from the current classroom.<br>
-Format: deleteassignment ASSIGNMENT_INDEX</p>
+<p>Edits a student at the specified index in the student list of the current class.<br>
+Format: <code>editstudent STUDENT_INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pp/PARENT_PHONE] [m/MEDICAL_CONDITIONS], [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:<br>
-* deleteassignment 3</p>
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editstudent 2 p/98510293 e/jonathan@example.com</code></p>
+</li>
+<li>
+<p><code>editstudent 4 n/Xavier Lim</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The index provided must be valid and at least one field must be edited.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-lesson"><a class="link" href="#deleting-lesson">Deleting lesson</a></h4>
+<h4 id="deleting-deletestudent"><a class="link" href="#deleting-deletestudent">Deleting: deletestudent</a></h4>
 <div class="paragraph">
-<p>Deletes the lesson in the index from the current classroom.
-Format: deletelesson LESSON_INDEX day/DAY_OF_THE_WEEK_INDEX</p>
+<p>Deletes a student at the specified index in the student list of the current class.<br>
+Format: <code>deletestudent STUDENT_INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:<br>
-* deletelesson 3</p>
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletestudent 5</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The index provided must be valid.
+</td>
+</tr>
+</table>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="locating-find"><a class="link" href="#locating-find">Locating: find</a></h3>
 <div class="sect3">
-<h4 id="students-by-name"><a class="link" href="#students-by-name">Students by name</a></h4>
+<h4 id="uploading-upload"><a class="link" href="#uploading-upload">Uploading: upload</a></h4>
 <div class="paragraph">
-<p>Find students whose name matches a given keyword in current classroom.<br>
-Format: findstudent STUDENT_NAME<br></p>
+<p>Uploads a PNG file to set as the display picture of the student at the specified index in the student list of the current class.<br>
+This will prompt the user to select a PNG file from their computer to set as the new display picture of the student.<br>
+Format: <code>upload STUDENT_INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:<br>
-* findstudent John Doe<br>
-* findstudent Jane Doe</p>
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>upload 3</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The index provided must be valid and the directory of the image uploaded is assumed to not change.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="assignments-by-assignment-name"><a class="link" href="#assignments-by-assignment-name">Assignments by assignment name</a></h4>
+<h4 id="finding-findstudent"><a class="link" href="#finding-findstudent">Finding: findstudent</a></h4>
 <div class="paragraph">
-<p>Find assignments whose assignment name matches a given keyword in current classroom.<br>
-Format: findassignment ASSIGNMENT_NAME<br></p>
+<p>Find students whose name matches a given keyword in the current classroom.<br>
+Format: <code>findstudent STUDENT_NAME</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:<br>
-* findassignment Math Homework<br>
-* findassignment English Assignment</p>
+<p>Examples:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findstudent John Doe</code></p>
+</li>
+<li>
+<p><code>findstudent Jane Doe</code></p>
+</li>
+</ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="clearing-data"><a class="link" href="#clearing-data">Clearing data</a></h3>
-<div class="paragraph">
-<p>Clears all the data in the notebook and start from a new notebook.<br>
-Format: clear</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="reminders-for-assignments-coming-in-v2-0"><a class="link" href="#reminders-for-assignments-coming-in-v2-0">Reminders for Assignments [coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Assignments can be added to the reminders for the notebook, where users will be alerted when the deadline is up for assignments.<br>
-Once the deadline is over, the assignments will be removed from the reminder panel, but will remain in the assignment list for future reference.</p>
+Once the deadline is over, the assignments will be removed from the reminder panel, but will remain in the assignment list for future reference.<br>
+This will give teachers a clearer idea of what they need to do in the reminder panel beyond just lessons.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="statistics-for-assignments-coming-in-v2-0"><a class="link" href="#statistics-for-assignments-coming-in-v2-0">Statistics for Assignments [coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Calculates the statistics for the chosen assignment for each class - Average, Median, 25th / 75th percentile etc.<br>
-Format: getstats ASSIGNMENT_INDEX</p>
+This will give teachers a clearer idea of how each class as a whole is doing.<br>
+Format: <code>getstats ASSIGNMENT_INDEX</code></p>
 </div>
 </div>
 </div>
@@ -590,13 +626,4 @@ If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, p
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 08:32:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 07:14:26 UTC</div></div></div></body></html>
