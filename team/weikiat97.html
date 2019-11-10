@@ -114,6 +114,9 @@ The implementation was very challenging as one command had to be suited for vari
 <li>
 <p>Made changes to the current puml diagrams from AB3 to suit our current project: <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/185">#185</a></p>
 </li>
+<li>
+<p>Changed the undo redo implementation feature from AB3 to suit the current project&#8217;s undo redo.</p>
+</li>
 </ul>
 </div>
 </li>
@@ -321,6 +324,13 @@ The index provided must be valid.
 </div>
 </div>
 <div class="sect3">
+<h4 id="listing-liststudents"><a class="link" href="#listing-liststudents">Listing: liststudents</a></h4>
+<div class="paragraph">
+<p>Lists all the students in the current classroom.
+Format: <code>liststudents</code></p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="finding-findstudent"><a class="link" href="#finding-findstudent">Finding: findstudent</a></h4>
 <div class="paragraph">
 <p>Find students whose name matches a given keyword in the current classroom.<br>
@@ -401,6 +411,34 @@ If the image is moved or deleted after it is set as the display picture, the dis
 </ul>
 </div>
 </div>
+<div class="sect3">
+<h4 id="undo-redo-undo-redo"><a class="link" href="#undo-redo-undo-redo">Undo/Redo: Undo/Redo</a></h4>
+<div class="paragraph">
+<p>The undo/redo feature allows a user to undo any command, and there is no limit on the number of actions that can be undone or redone.
+After the undo/redo command the application will be in the state before/after the action was made.<br></p>
+</div>
+<div class="paragraph">
+<p>States will only be made if there is a modification to the notebook. Hence, commands like <code>help</code> and <code>liststudents</code> that does not change the internal structure of the notebook will not lead to a saved state.<br></p>
+</div>
+<div class="paragraph">
+<p>Undo will only be executable if there is a previous state saved. Redo will only be executable if there is a previously undone method.<br></p>
+</div>
+<div class="paragraph">
+<p>If a command that changes the state of the notebook is called after an <code>undo</code> command, the other states after the current pointer will be erased.
+This means that users will not be able to redo any of the previous states, until the user calls another <code>undo</code> command again.
+This mechanism is similar to how undo/redo works for modern desktop applications.</p>
+</div>
+<div class="paragraph">
+<p>Undo/redo cannot, however, undo actions made during previous activation of Teacher&#8217;s Notebook.<br>
+This is to say, once the application is closed, all actions done cannot be undone.<br></p>
+</div>
+<div class="paragraph">
+<p>Usage:</p>
+</div>
+<div class="paragraph">
+<p>Enter <code>undo</code> or <code>redo</code><br></p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="reminders-for-assignments-coming-in-v2-0"><a class="link" href="#reminders-for-assignments-coming-in-v2-0">Reminders for Assignments [coming in v2.0]</a></h3>
@@ -434,221 +472,180 @@ Format: <code>getstats ASSIGNMENT_INDEX</code></p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-and-redo-feature"><a class="link" href="#undo-and-redo-feature">Undo and Redo feature</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">Model component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelClassDiagram.png" alt="ModelClassDiagram">
+</div>
+<div class="title">Figure 1. Structure of the Model Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Model</code>,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
+</li>
+<li>
+<p>stores the Notebook data.</p>
+</li>
+<li>
+<p>saves the state of the Notebook after each change in state for undo redo function.</p>
+</li>
+<li>
+<p>exposes an unmodifiable <code>ObservableList&lt;Student&gt;</code>, <code>ObservableList&lt;Assignment&gt;</code>, and <code>ObservableList&lt;Lesson&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+</li>
+<li>
+<p>does not depend on any of the other three components.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As a more OOP model, we can store a <code>Tag</code> list in <code>Classroom</code>, which <code>Student</code> can reference. This would allow <code>Classroom</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Student</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+<br>
+<span class="image"><img src="../images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">Storage component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StorageClassDiagram.png" alt="StorageClassDiagram">
+</div>
+<div class="title">Figure 2. Structure of the Storage Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Storage</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+</li>
+<li>
+<p>can save the Notebook data in json format and read it back.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="get-grades-feature"><a class="link" href="#get-grades-feature">Get grades feature</a></h3>
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>Caretaker</code>, with each notebook state saved as a <code>Memento</code>.
-It extends <code>Notebook</code> with an undo/redo history, stored internally as an <code>mementos</code> and <code>statePointer</code>.
-Additionally, it implements the following operations:</p>
+<p>The current GetStudentGradesCommand will retrieve all the grades of a particular student.
+This is done through iterating through the FilteredAssignmentList, and pulling all the grades of a specified student.
+Additionally, it implements the following operations through Commands:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Caretaker#saveState()</code>&#8201;&#8212;&#8201;Saves the current notebook state in its history.</p>
-</li>
-<li>
-<p><code>Caretaker#undo()</code>&#8201;&#8212;&#8201;Restores the previous notebook state from its history by undoing the previous command.</p>
-</li>
-<li>
-<p><code>Caretaker#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone notebook state from its history by redoing the previously undone command.</p>
+<p><code>Assignment#getGrades()</code>&#8201;&#8212;&#8201;Retrieves the Map that contains students' names as the key and students' grades as the value.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#saveState()</code>, <code>Model#undo()</code> and <code>Model#redo()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>Caretaker</code> will be initialized with the initial notebook state, and the <code>statePointer</code> pointing to that single notebook state.</p>
+<p>The following sequence diagram shows how the get grades operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoState0.png" alt="UndoRedoState0">
+<img src="../images/GetGradesSequenceDiagram.png" alt="GetGradesSequenceDiagram">
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>deletestudent 5</code> command to delete the 5th student in the current classroom. The <code>deletestudent</code> command calls <code>Model#saveState()</code>, causing the modified state of the notebook after the <code>deletestudent 5</code> command executes to be saved in the <code>mementos</code>, and the <code>statePointer</code> is shifted to the newly inserted notebook state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>addstudent n/David &#8230;&#8203;</code> to add a new student. The <code>addstudent</code> command also calls <code>Model#saveState()</code>, causing another modified notebook state to be saved into the <code>mementos</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState2.png" alt="UndoRedoState2">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#saveState()</code>, so the notebook state will not be saved into the <code>mementos</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the student was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undo()</code>, which will shift the <code>statePointer</code> once to the left, pointing it to the previous notebook state, and restores the notebook to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState3.png" alt="UndoRedoState3">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>statePointer</code> is at index 0, pointing to the initial notebook state, then there are no previous notebook states to restore. The <code>undo</code> command uses <code>Model#canUndo()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redo()</code>, which shifts the <code>statePointer</code> once to the right, pointing to the previously undone state, and restores the notebook to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, pointing to the latest notebook state, then there are no undone notebook states to restore. The <code>redo</code> command uses <code>Model#canRedo()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>liststudents</code>. Commands that do not modify the classroom, such as <code>liststudents</code>, will usually not call <code>Model#saveState()</code>, <code>Model#undo()</code> or <code>Model#redo()</code>. Thus, the <code>mementos</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState()</code>. Since the <code>statePointer</code> is not pointing at the end of the <code>mementos</code>, all notebook states after the <code>statePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>addstudent n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
+<p>After getting the Map from the <code>getGrades()</code> method, if the key of the current key-value pair is equals to the name of the student,
+the value, which is the grades of the student, will be added to the output that will be shown in the CommandResult.</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="get-unsubmitted-assignments-feature"><a class="link" href="#get-unsubmitted-assignments-feature">Get unsubmitted assignments feature</a></h3>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire notebook.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<div class="paragraph">
+<p>The implementation for getting unsubmitted assignments is similar to the get submitted feature, except that it will search for values of "Not submitted." instead.</p>
 </div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>deletestudent</code>, just save the student being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-<li>
-<p>Cons: Need to ensure that the commands are able to be executed at the correct index.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>The following activity diagram shows how the get unsubmitted operation works:</p>
 </div>
-</li>
-</ul>
+<div class="imageblock">
+<div class="content">
+<img src="../images/GetUnsubmittedActivityDiagram.png" alt="GetUnsubmittedActivityDiagram">
 </div>
 </div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
+<h3 id="use-case-undo" class="discrete">Use case: Undo</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of notebook states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
+<p>User requests to do a command.</p>
 </li>
 <li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>Caretaker</code>.</p>
+<p>Notebook does the action.</p>
 </li>
-</ul>
+<li>
+<p>User requests to undo.</p>
+</li>
+<li>
+<p>Notebook undoes action 2, action from step 2 is undone.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
 </li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
 <li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
+<p>1a. The given command is invalid.</p>
+<div class="ulist none">
+<ul class="none">
 <li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
+<p>1a1. Notebook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
 </div>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>3a. The action cannot be undone as it does not change the state of the notebook.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. Notebook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 18:36:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 19:11:37 UTC</div></div></div></body></html>
