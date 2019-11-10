@@ -65,7 +65,18 @@ It is written in Java, and has about 10 kLoC.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does</p>
+<p>What it does: add a popup menu that suggests commands to the user based on text the user has already entered</p>
+</li>
+<li>
+<p>Justification: Many commands in Teacher&#8217;s Notebook are long and tedious, and have specific prefixes or formats.
+By suggesting commands, users can quickly become familiar with commands, and save time not needing to remember the
+format of commands.
+and easily select</p>
+</li>
+<li>
+<p>Highlights: This enhancement allows the user to view up to 10 suggestions in a popup menu, and select between them with the keyboard.
+Commands suggested are already in their required form with prefixes, making it easier for users
+to execute the intended command successfully without referring to the UserGuide.</p>
 </li>
 </ul>
 </div>
@@ -76,13 +87,72 @@ It is written in Java, and has about 10 kLoC.</p>
 <li>
 <p>Code Contributed [<a href="https://github.com/AY1920S1-CS2103-T14-1/main/commits?author=sebastianlie">Functional Code</a>] [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=SebastianLie&amp;tabRepo=AY1920S1-CS2103-T14-1%2Fmain%5Bmaster%5D">RepoSense</a>
 ]</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+</li>
+<li>
+<p>Fixed issues brought up by peers. (Pull requests <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/61">#61</a>, Pull requests <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/85">#85</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added 2 extra panels to the GUI, and added display picture to the student card (Pull requests <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/61">#61</a>, Pull requests <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/85">#85</a>)</p>
+</li>
+<li>
+<p>improved test coverage from 25 to 33 %, PR #189, #190, #191: 46-48% (Pull requests <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/190">#190</a>, Pull requests <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/189">#189</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Other contributions:</p>
 </li>
 <li>
-<p>Added Test coverage: improved test coverage from 25 to 33 %,
-PR #189, #190</p>
+<p>Added Test coverage: improved test coverage from 25 to 33 %, PR #189, #190, #191: 46-48%</p>
 </li>
 </ul>
 </div>
@@ -204,7 +274,7 @@ This is to say, once the application is closed, all actions done cannot be undon
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/class/class1.JPG" alt="class">
+<img src="../images/class/class1.JPG" alt="class" width="500" height="480">
 </div>
 </div>
 <div class="paragraph">
@@ -290,7 +360,7 @@ Upon entering the command, a window will popup as shown below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/upload/upload_1.jpg" alt="upload 1">
+<img src="../images/upload/upload_1.JPG" alt="500" width="480">
 </div>
 </div>
 <div class="paragraph">
@@ -360,227 +430,120 @@ If the image is moved or deleted after it is set as the display picture, the dis
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-and-redo-feature"><a class="link" href="#undo-and-redo-feature">Undo and Redo feature</a></h3>
+<h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">Autocomplete feature</a></h3>
 <div class="sect3">
-<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>Caretaker</code>, with each notebook state saved as a <code>Memento</code>.
-It extends <code>Notebook</code> with an undo/redo history, stored internally as an <code>mementos</code> and <code>statePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Caretaker#saveState()</code>&#8201;&#8212;&#8201;Saves the current notebook state in its history.</p>
-</li>
-<li>
-<p><code>Caretaker#undo()</code>&#8201;&#8212;&#8201;Restores the previous notebook state from its history by undoing the previous command.</p>
-</li>
-<li>
-<p><code>Caretaker#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone notebook state from its history by redoing the previously undone command.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#saveState()</code>, <code>Model#undo()</code> and <code>Model#redo()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>Caretaker</code> will be initialized with the initial notebook state, and the <code>statePointer</code> pointing to that single notebook state.</p>
+<p>The AutoComplete feature is facilitated by 2 classes: the <code>AutoCompleteTextField</code>, and the class <code>Styles</code>.
+Both are represented in the class diagram below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoState0.png" alt="UndoRedoState0">
+<img src="../images/SebastianDG/AutoCompleteClassDiagram.png" alt="auto_" width="300" height="300">
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>deletestudent 5</code> command to delete the 5th student in the current classroom. The <code>deletestudent</code> command calls <code>Model#saveState()</code>, causing the modified state of the notebook after the <code>deletestudent 5</code> command executes to be saved in the <code>mementos</code>, and the <code>statePointer</code> is shifted to the newly inserted notebook state.</p>
+<p>The <code>AutoCompleteTextField</code> adds a <code>ChangeListener</code> to textProperty() that notifies <code>AutoCompleteTextField</code>
+whenever the user inputs new text, i.e when the text entered changes.</p>
+</div>
+<div class="paragraph">
+<p>Step 1.  User triggers the listener when user enters text.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. From the text entered, <code>AutoCompleteTextField</code> attempts suggesting existing commands.
+If input matches any existing commands, it proceeds to step 3. Otherwise, it does nothing and waits user input.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>AutoCompleteTextField</code> calls `Styles#buildTextFlow`to highlight the portion of each
+command suggestion where the user&#8217;s input matches the suggestion.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>AutoCompleteTextField</code> then displays a popup menu using the javafx class <code>ContextMenu</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. If the user selects a suggestion, the textfield is set to that suggestion, and the popup menu is
+closed. If the user enters more text, <code>AutoCompleteTextField</code> returns to step 1.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. Otherwise, the popup menu is closed.</p>
+</div>
+<div class="paragraph">
+<p>This sequence of steps is illustrated below with an activity diagram.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>addstudent n/David &#8230;&#8203;</code> to add a new student. The <code>addstudent</code> command also calls <code>Model#saveState()</code>, causing another modified notebook state to be saved into the <code>mementos</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState2.png" alt="UndoRedoState2">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#saveState()</code>, so the notebook state will not be saved into the <code>mementos</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the student was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undo()</code>, which will shift the <code>statePointer</code> once to the left, pointing it to the previous notebook state, and restores the notebook to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState3.png" alt="UndoRedoState3">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>statePointer</code> is at index 0, pointing to the initial notebook state, then there are no previous notebook states to restore. The <code>undo</code> command uses <code>Model#canUndo()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redo()</code>, which shifts the <code>statePointer</code> once to the right, pointing to the previously undone state, and restores the notebook to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, pointing to the latest notebook state, then there are no undone notebook states to restore. The <code>redo</code> command uses <code>Model#canRedo()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>liststudents</code>. Commands that do not modify the classroom, such as <code>liststudents</code>, will usually not call <code>Model#saveState()</code>, <code>Model#undo()</code> or <code>Model#redo()</code>. Thus, the <code>mementos</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#saveState()</code>. Since the <code>statePointer</code> is not pointing at the end of the <code>mementos</code>, all notebook states after the <code>statePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>addstudent n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire notebook.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>deletestudent</code>, just save the student being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-<li>
-<p>Cons: Need to ensure that the commands are able to be executed at the correct index.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of notebook states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>Caretaker</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<img src="../images/SebastianDG/auto_activity.JPG" alt="auto_" width="500" height="500">
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
+<h3 id="upload-feature"><a class="link" href="#upload-feature">Upload feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>The uploading of a student&#8217;s picture is facilitated by UploadPictureCommandParser, UploadPictureCommand, ModelManager, FileChooser and DisplayPicture,
+while the displaying of the student&#8217;s picture is facilitated by MainWindow and StudentCard.<br>
+<code>UploadPictureCommandParser</code> implements <code>Parser</code>. <code>UploadPictureCommand</code> extends <code>Command</code>,
+and represents the logic that will be executed once the user activates the upload command and chooses a file.<br>
+The <code>UploadPictureCommand</code> command communicates with <code>ModelManager</code> to replace the old <code>Student</code> object with
+a new <code>Student</code> object that has its display picture field changed.<br></p>
+</div>
+<div class="paragraph">
+<p>This change is then reflected in the UI when <code>MainWindow</code> loads the <code>StudentCard</code> for the new student,
+which will load the image and display it in the UI.</p>
+</div>
+<div class="paragraph">
+<p>The main operation implemented is <code>UploadPictureCommand#execute</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user wants to upload a display picture for their student. User identifies the student&#8217;s index
+number and enters the command <code>upload INDEX</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>MainWindow</code> detects the <code>upload</code> command word and uses <code>FileChooser</code> to open a window for the user to select a picture from their computer.
+<code>MainWindow</code> then saves the path of the selected file as a string and adds a prefix "f/" to the input arguments.
+The path of the file is also appended to the end of the input string before the input arguments are passed to <code>NotebookParser</code></p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>NotebookParser</code> parses the input and detects the <code>upload</code> command word, and calls <code>UploadPictureCommandParser</code>.
+This in turn checks user&#8217;s input for errors before calling <code>UploadPictureCommand</code>, which checks whether the file
+is a PNG or JPG file.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>LogicManager</code> executes the <code>UploadPictureCommand</code>, which checks the validity of the index provided,
+as well as whether the picture selected is different from the picture already displayed.
+A visual representation of the order of checks for the input arguments are displayed in the diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/upload/upload_dg_1.JPG" alt="checksdiagram" width="400" height="480">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 5. After these checks, the <code>createEditedStudent</code> method in <code>UploadPictureCommand</code> is called to create a new <code>Student</code> object, editedStudent,
+which has its display filepath changed to the file the user chose.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. <code>UploadPictureCommand</code> calls Model to replace the current student with the editedStudent.
+The command result is then passed back all the way to <code>MainWindow</code> which refreshes the GUI,
+and displays the new picture for the chosen student.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram illustrates the process above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SebastianDG/UploadSequenceDiagram.png" alt="UploadSequenceDiagram">
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 18:24:23 UTC</div></div></div></body></html>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>Alternative implementations:</p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 18:32:30 UTC</div></div></div></body></html>
