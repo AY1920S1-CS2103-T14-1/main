@@ -88,20 +88,28 @@ tasks and students’ information. It is optimized for teachers who prefer to wo
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/class/class1.JPG" alt="class" width="500" height="480">
+<img src="images/class/class2.JPG" alt="class" width="600" height="480">
 </div>
 </div>
 <div class="paragraph">
-<p>The classroom colored in blue shows the classroom that the user is currently viewing.
-Viewing a classroom enables a user to see the full profiles of the students,<br>
-As well as full information about assignments. Changing classrooms will allow the user to view the students and assignments of another class.
-The number of students, and the number of assignments are displayed for each classroom<br></p>
+<p>The first classroom in the panel is selected by default.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Classroom names are case sensitive.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="adding-classroom-addclass"><a class="link" href="#adding-classroom-addclass">3.1.1. Adding Classroom: addclass</a></h4>
 <div class="paragraph">
-<p>Adds a new classroom to the list of existing classrooms. The name of the new classroom must not be empty,
-and it must be different from all the current classrooms names.</p>
+<p>Adds a new classroom to the list of existing classroom.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>addclass c/CLASS_NAME</code></p>
@@ -119,12 +127,24 @@ and it must be different from all the current classrooms names.</p>
 </li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The name of the new classroom must not be empty,
+and it must be different from all current classroom names.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="deleting-classroom-deleteclass"><a class="link" href="#deleting-classroom-deleteclass">3.1.2. Deleting Classroom: deleteclass</a></h4>
 <div class="paragraph">
-<p>Allows a user to delete the selected classroom, if the user no longer needs the classroom or entered its name wrongly.<br>
-Classroom must be in the current list of classrooms, and classroom name cannot be empty.<br></p>
+<p>Allows a user to delete the selected classroom.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>deleteclass c/CLASS_NAME</code></p>
@@ -142,16 +162,34 @@ Classroom must be in the current list of classrooms, and classroom name cannot b
 </li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Classroom must be in the current list of classrooms, and CLASS_NAME cannot be empty.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="setting-classroom-setclass"><a class="link" href="#setting-classroom-setclass">3.1.3. Setting Classroom: setclass</a></h4>
 <div class="paragraph">
-<p>Allows a user to set a classroom as the selected classroom.<br>
-Student and Assignment functions will act on the selected classroom.<br>
-Classroom must be in the current list of classrooms, and classroom name cannot be empty.<br></p>
+<p>Allows a user to select a classroom as the selected classroom.
+Student and Assignment functions will act on the selected classroom.
+The image below illustrates the change in
+the middle GUI panel when setclass is called.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/class/setclass.JPG" alt="class" width="600" height="480">
+</div>
 </div>
 <div class="paragraph">
-<p>Format: <code>setclass c/CLASS_NAME</code></p>
+<p>Format: <code>setclass c/CLASS_NAME</code><br></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -165,6 +203,18 @@ Classroom must be in the current list of classrooms, and classroom name cannot b
 <p><code>setclass c/3E8</code></p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Classroom must be in the current list of classrooms, and classroom name cannot be empty.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -810,7 +860,7 @@ of Teacher&#8217;s Notebook and make using the application a more forgiving, pai
 <div class="sect3">
 <h4 id="autocomplete"><a class="link" href="#autocomplete">3.5.1. Autocomplete</a></h4>
 <div class="paragraph">
-<p>The Autocomplete feature allows a user to toggle through suggestions that guess at what command the user wants to type in.<br>
+<p>Allows a user to toggle through suggestions that guess at what command the user wants to type in.<br>
 Upon typing any letters that resemble commands, a popup menu will appear as shown below:</p>
 </div>
 <div class="imageblock">
@@ -819,24 +869,50 @@ Upon typing any letters that resemble commands, a popup menu will appear as show
 </div>
 </div>
 <div class="paragraph">
-<p>The user can then choose the first option of the menu using CTRL, use SHIFT + UP and SHIFT + DOWN to cycle through menu options,<br>
-or use ESC to turn the autocomplete feature off. CTRL can be used to turn the feature back on.<br></p>
-</div>
-<div class="paragraph">
 <p>Usage:</p>
 </div>
 <div class="paragraph">
-<p><code>SHIFT + Arrow DOWN</code> and <code>SHIFT + Arrow UP</code> Keys to toggle between autocomplete options<br>
-<code>CTRL</code> Key to choose the first autocomplete suggestion, or turn AutoComplete on if it&#8217;s off.<br>
+<p><code>SHIFT + Arrow DOWN</code> and <code>SHIFT + Arrow UP</code> Keys to toggle between autocomplete suggestions<br>
+<code>CTRL</code> Key to choose the first autocomplete suggestion, or turn AutoComplete on if it is turned off.<br>
 <code>ESC</code> Key to close the autocomplete suggestions and turn off AutoComplete.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To facilitate the user learning the long and possibly tedious commands,
+the AutoComplete popup menu does not hide when a user&#8217;s input greater than 6 characters does not match any command.
+This is why even if the input matches the suggestion, the matching part of the
+suggestion is not highlighted past 6 characters.
+6 characters is an arbitrary value and will be improved upon in future releases, and
+with user feedback.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
 <h4 id="history"><a class="link" href="#history">3.5.2. History</a></h4>
 <div class="paragraph">
-<p>The History feature allows a user to toggle through their previously entered commands,<br>
-regardless of whether the user command was successful. As this may clash with autocomplete suggestion toggling, we recommend closing<br>
-autocomplete suggestions before using the History feature.<br></p>
+<p>Allows a user to toggle through their previously entered commands,
+regardless of whether the command was successful.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+It is likely that autocomplete and history will clash, as both use the arrow keys.
+We recommend that you turn the autocomplete feature off (<code>ESC</code> key) before using the
+history feature.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Usage:</p>
@@ -848,19 +924,11 @@ autocomplete suggestions before using the History feature.<br></p>
 <div class="sect3">
 <h4 id="undo-redo-undo-redo"><a class="link" href="#undo-redo-undo-redo">3.5.3. Undo/Redo: Undo/Redo</a></h4>
 <div class="paragraph">
-<p>The undo/redo feature allows a user to undo any command, and there is no limit on the number of actions that can be undone or redone.
-After the undo/redo command the application will be in the state before/after the action was made.<br></p>
+<p>Restores the database to the state before the previous undoable command was executed.</p>
 </div>
 <div class="paragraph">
-<p>States will only be made if there is a modification to the notebook. Hence, commands like <code>help</code> and <code>liststudents</code> that does not change the internal structure of the notebook will not lead to a saved state.<br></p>
-</div>
-<div class="paragraph">
-<p>Undo will only be executable if there is a previous state saved. Redo will only be executable if there is a previously undone method.<br></p>
-</div>
-<div class="paragraph">
-<p>If a command that changes the state of the notebook is called after an <code>undo</code> command, the other states after the current pointer will be erased.
-This means that users will not be able to redo any of the previous states, until the user calls another <code>undo</code> command again.
-This mechanism is similar to how undo/redo works for modern desktop applications.</p>
+<p>[NOTE] Undoable commands are commands that modify the database&#8217;s content: <code>add</code>, <code>delete</code>
+<code>edit</code>, <code>clear</code>, <code>upload</code>.</p>
 </div>
 <div class="paragraph">
 <p>Undo/redo cannot, however, undo actions made during previous activation of Teacher&#8217;s Notebook.<br>
@@ -871,6 +939,20 @@ This is to say, once the application is closed, all actions done cannot be undon
 </div>
 <div class="paragraph">
 <p>Enter <code>undo</code> or <code>redo</code><br></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletestudent 1</code> + <code>undo</code> (reverses the <code>delete 1</code> command)<br>
+<code>redo</code> (applies the delete command again)<br></p>
+</li>
+<li>
+<p><code>liststudents</code> + <code>undo</code> (Error message pops up, no )</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -888,7 +970,7 @@ This is to say, once the application is closed, all actions done cannot be undon
 <div class="sect3">
 <h4 id="clear"><a class="link" href="#clear">3.5.5. Clear</a></h4>
 <div class="paragraph">
-<p>Clears all data from the notebook. If triggered erroneously, the clear command can be undone to reclaim all data.</p>
+<p>Clears all data from the notebook. If triggered erroneously, the undo command can be used to reclaim all data.</p>
 </div>
 <div class="paragraph">
 <p>Usage:</p>
@@ -1056,4 +1138,4 @@ e.g. <code>getgrades 1</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:18:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:24:26 UTC</div></div></div></body></html>
