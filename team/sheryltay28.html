@@ -1,0 +1,311 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Tay Sheryl - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Teacher Notebook</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://ay1920s1-cs2103-t14-1.github.io/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tay Sheryl - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-teacher-s-notebook"><a class="link" href="#project-teacher-s-notebook">PROJECT: Teacher&#8217;s Notebook</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Teacher&#8217;s Notebook is an application for teachers to organise their classes and lessons as well as provide reminders when their lessons are about to start.
+The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: Added Lessons and Reminders to the app.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows user to add, delete, find or edit lessons. A reminder will be scheduled whenever a new Lesson is added.</p>
+</li>
+<li>
+<p>Justification: Since lessons are an important part of a teacher&#8217;s daily work schedule, being able to add lessons and reminders will be useful for the teacher to keep track of what lessons they have.</p>
+</li>
+<li>
+<p>Highlights: Reminders will be automatically added whenever a new Lesson is added and when the application is being closed and open, it will still be scheduled.</p>
+</li>
+<li>
+<p>Credits: Command for Lessons are inspired by AddressBook3 commands for contacts.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added tabs to GUI to display lessons by the day of the week.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=sheryltay28&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false">tp code dashboard</a>]</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.1 - v1.3</code> (4 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Gave comments to other people in the group before merging pr.</p>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+</li>
+<li>
+<p>Fixed exit issues for the app (Pull request <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/183" class="bare">https://github.com/AY1920S1-CS2103-T14-1/main/pull/183</a>)</p>
+</li>
+<li>
+<p>Community:</p>
+</li>
+<li>
+<p>Reviewed other pr&#8217;s and bugs in class with group mates.</p>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did cosmetic tweaks to existing contents of the User Guide.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="lessons"><a class="link" href="#lessons">Lessons</a></h3>
+<div class="paragraph">
+<p>The user can view his or her lessons on the left panel of the GUI of the Teacher&#8217;s Notebook.<br>
+There are several fields in each lesson as shown below:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>LessonName - Prefix: l/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>LessonNames should be alphanumerical, and cannot be empty.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>StartTime - Prefix: st/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>StartTime should be in the format dd/mm/yyyy hhmm e.g. 12/01/2020 1200</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>EndTime - Prefix: et/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>EndTime should be in the format dd/mm/yyyy hhmm e.g. 12/01/2020 1300</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>repeat - Prefix: r/</p>
+</li>
+<li>
+<p>Day - Prefix: day/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Day should be an integer between 1-7.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-addlesson"><a class="link" href="#adding-addlesson">Adding: addlesson</a></h3>
+<div class="paragraph">
+<p>Adds a lesson to the lesson list of the notebook,<br>
+feature to repeat lessons will be implemented in v2.0<br>
+Format: addlesson l/LESSON st/START_TIME et/ET_TIME:dd/MM/yy HHmm</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>'addlesson l/Math 4E7 st/12/01/2020 1200 et/12/01/2020 1300'</p>
+</li>
+<li>
+<p>'addlesson l/English 3E8 st/06/01/2020 1200 et/06/01/2020 1300'</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>==Editing: editlesson
+Edits a lesson at the specific index in the day list of reminder panel.<br>
+Day index represents day in week, e.g. Monday: 1, Tuesday: 2<br>
+Format: 'editlesson LESSON_INDEX day/DAY_INDEX [l/LESSON_NAME] [st/START_TIME] [et/END_TIME]'</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>'editlesson 1 day/3 l/English 4E2'
+'editlesson 2 day/4 st/05/01/2020 1200 et/05/01/2020 1300'</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The index and day index provided must be valid and at least one field must be edited.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-deletelesson"><a class="link" href="#deleting-deletelesson">Deleting: deletelesson</a></h3>
+<div class="paragraph">
+<p>Deletes a lesson at the specified index in the day list of reminder panel.<br>
+Day index represents day in week, e.g. Monday: 1, Tuesday: 2<br>
+Format: 'deletelesson LESSON_INDEX day/DAY_INDEX'</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>'deletelesson 1 day/2'
+'deletelesson 3 day/4'</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The index and day index provided must be valid and at least one field must be edited.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-findlesson"><a class="link" href="#finding-findlesson">Finding: findlesson</a></h3>
+<div class="paragraph">
+<p>Finds lessons which match the given keyword.<br>
+Format: 'findlesson KEYWORD'</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>'findlesson Math'
+'findlesson 12:00'</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="Design-Model"><a class="link" href="#Design-Model">Model component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelClassDiagram.png" alt="ModelClassDiagram">
+</div>
+<div class="title">Figure 1. Structure of the Model Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Model</code>,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
+</li>
+<li>
+<p>stores the Notebook data.</p>
+</li>
+<li>
+<p>saves the state of the Notebook after each change in state for undo redo function.</p>
+</li>
+<li>
+<p>exposes an unmodifiable <code>ObservableList&lt;Student&gt;</code>, <code>ObservableList&lt;Assignment&gt;</code>, and <code>ObservableList&lt;Lesson&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+</li>
+<li>
+<p>does not depend on any of the other three components.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As a more OOP model, we can store a <code>Tag</code> list in <code>Classroom</code>, which <code>Student</code> can reference. This would allow <code>Classroom</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Student</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+<br>
+<span class="image"><img src="../images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 02:26:21 UTC</div></div></div></body></html>

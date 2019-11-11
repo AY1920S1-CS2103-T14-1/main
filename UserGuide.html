@@ -15,9 +15,12 @@
 <ul class="sectlevel2">
 <li><a href="#classes">3.1. Classes</a></li>
 <li><a href="#lessons">3.2. Lessons</a></li>
-<li><a href="#students">3.3. Students</a></li>
-<li><a href="#assignments">3.4. Assignments</a></li>
-<li><a href="#user-friendly-features">3.5. User-Friendly Features</a></li>
+<li><a href="#adding-addlesson">3.3. Adding: addlesson</a></li>
+<li><a href="#deleting-deletelesson">3.4. Deleting: deletelesson</a></li>
+<li><a href="#finding-findlesson">3.5. Finding: findlesson</a></li>
+<li><a href="#students">3.6. Students</a></li>
+<li><a href="#assignments">3.7. Assignments</a></li>
+<li><a href="#user-friendly-features">3.8. User-Friendly Features</a></li>
 </ul>
 </li>
 <li><a href="#additional-features-coming-in-v2-0">4. Additional Features Coming in V2.0</a>
@@ -169,10 +172,147 @@ Classroom must be in the current list of classrooms, and class name cannot be em
 </div>
 <div class="sect2">
 <h3 id="lessons"><a class="link" href="#lessons">3.2. Lessons</a></h3>
-
+<div class="paragraph">
+<p>The user can view his or her lessons on the left panel of the GUI of the Teacher&#8217;s Notebook.<br>
+There are several fields in each lesson as shown below:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>LessonName - Prefix: l/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>LessonNames should be alphanumerical, and cannot be empty.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>StartTime - Prefix: st/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>StartTime should be in the format dd/mm/yyyy hhmm e.g. 12/01/2020 1200</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>EndTime - Prefix: et/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>EndTime should be in the format dd/mm/yyyy hhmm e.g. 12/01/2020 1300</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>repeat - Prefix: r/</p>
+</li>
+<li>
+<p>Day - Prefix: day/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Day should be an integer between 1-7.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
-<h3 id="students"><a class="link" href="#students">3.3. Students</a></h3>
+<h3 id="adding-addlesson"><a class="link" href="#adding-addlesson">3.3. Adding: addlesson</a></h3>
+<div class="paragraph">
+<p>Adds a lesson to the lesson list of the notebook,<br>
+feature to repeat lessons will be implemented in v2.0<br>
+Format: addlesson l/LESSON st/START_TIME et/ET_TIME:dd/MM/yy HHmm</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>'addlesson l/Math 4E7 st/12/01/2020 1200 et/12/01/2020 1300'</p>
+</li>
+<li>
+<p>'addlesson l/English 3E8 st/06/01/2020 1200 et/06/01/2020 1300'</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>==Editing: editlesson
+Edits a lesson at the specific index in the day list of reminder panel.<br>
+Day index represents day in week, e.g. Monday: 1, Tuesday: 2<br>
+Format: 'editlesson LESSON_INDEX day/DAY_INDEX [l/LESSON_NAME] [st/START_TIME] [et/END_TIME]'</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>'editlesson 1 day/3 l/English 4E2'
+'editlesson 2 day/4 st/05/01/2020 1200 et/05/01/2020 1300'</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The index and day index provided must be valid and at least one field must be edited.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-deletelesson"><a class="link" href="#deleting-deletelesson">3.4. Deleting: deletelesson</a></h3>
+<div class="paragraph">
+<p>Deletes a lesson at the specified index in the day list of reminder panel.<br>
+Day index represents day in week, e.g. Monday: 1, Tuesday: 2<br>
+Format: 'deletelesson LESSON_INDEX day/DAY_INDEX'</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>'deletelesson 1 day/2'
+'deletelesson 3 day/4'</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The index and day index provided must be valid and at least one field must be edited.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-findlesson"><a class="link" href="#finding-findlesson">3.5. Finding: findlesson</a></h3>
+<div class="paragraph">
+<p>Finds lessons which match the given keyword.<br>
+Format: 'findlesson KEYWORD'</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>'findlesson Math'
+'findlesson 12:00'</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="students"><a class="link" href="#students">3.6. Students</a></h3>
 <div class="paragraph">
 <p>Students are contained within each class. There are several fields in each student as shown below:</p>
 </div>
@@ -261,7 +401,7 @@ Classroom must be in the current list of classrooms, and class name cannot be em
 </ul>
 </div>
 <div class="sect3">
-<h4 id="adding-addstudent"><a class="link" href="#adding-addstudent">3.3.1. Adding: addstudent</a></h4>
+<h4 id="adding-addstudent"><a class="link" href="#adding-addstudent">3.6.1. Adding: addstudent</a></h4>
 <div class="paragraph">
 <p>Adds a student to the student list of the current class.<br>
 Format: <code>addstudent n/NAME e/EMAIL p/PHONE a/ADDRESS pp/PARENT_PHONE [m/MEDICAL_CONDITIONS]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
@@ -281,7 +421,7 @@ Format: <code>addstudent n/NAME e/EMAIL p/PHONE a/ADDRESS pp/PARENT_PHONE [m/MED
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-editstudent"><a class="link" href="#editing-editstudent">3.3.2. Editing: editstudent</a></h4>
+<h4 id="editing-editstudent"><a class="link" href="#editing-editstudent">3.6.2. Editing: editstudent</a></h4>
 <div class="paragraph">
 <p>Edits a student at the specified index in the student list of the current class.<br>
 Format: <code>editstudent STUDENT_INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pp/PARENT_PHONE] [m/MEDICAL_CONDITIONS], [t/TAG]&#8230;&#8203;</code></p>
@@ -313,7 +453,7 @@ The index provided must be valid and at least one field must be edited.
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-deletestudent"><a class="link" href="#deleting-deletestudent">3.3.3. Deleting: deletestudent</a></h4>
+<h4 id="deleting-deletestudent"><a class="link" href="#deleting-deletestudent">3.6.3. Deleting: deletestudent</a></h4>
 <div class="paragraph">
 <p>Deletes a student at the specified index in the student list of the current class.<br>
 Format: <code>deletestudent STUDENT_INDEX</code></p>
@@ -342,14 +482,14 @@ The index provided must be valid.
 </div>
 </div>
 <div class="sect3">
-<h4 id="listing-liststudents"><a class="link" href="#listing-liststudents">3.3.4. Listing: liststudents</a></h4>
+<h4 id="listing-liststudents"><a class="link" href="#listing-liststudents">3.6.4. Listing: liststudents</a></h4>
 <div class="paragraph">
 <p>Lists all the students in the current classroom.
 Format: <code>liststudents</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-findstudent"><a class="link" href="#finding-findstudent">3.3.5. Finding: findstudent</a></h4>
+<h4 id="finding-findstudent"><a class="link" href="#finding-findstudent">3.6.5. Finding: findstudent</a></h4>
 <div class="paragraph">
 <p>Find students whose name matches a given keyword in the current classroom.<br>
 Format: <code>findstudent STUDENT_NAME</code></p>
@@ -369,7 +509,7 @@ Format: <code>findstudent STUDENT_NAME</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="uploading-upload"><a class="link" href="#uploading-upload">3.3.6. Uploading: upload</a></h4>
+<h4 id="uploading-upload"><a class="link" href="#uploading-upload">3.6.6. Uploading: upload</a></h4>
 <div class="paragraph">
 <p>Allows a user to upload a PNG/JPG file to set the display picture of the student at the specified index in the student list of the current class.<br>
 Upon entering the command, a window will popup as shown below:</p>
@@ -411,7 +551,7 @@ If the image is moved or deleted after it is set as the display picture, the dis
 </div>
 </div>
 <div class="sect3">
-<h4 id="resetting-display-picture"><a class="link" href="#resetting-display-picture">3.3.7. Resetting display picture</a></h4>
+<h4 id="resetting-display-picture"><a class="link" href="#resetting-display-picture">3.6.7. Resetting display picture</a></h4>
 <div class="paragraph">
 <p>Resets the display picture of the student to the default.</p>
 </div>
@@ -431,17 +571,17 @@ If the image is moved or deleted after it is set as the display picture, the dis
 </div>
 </div>
 <div class="sect2">
-<h3 id="assignments"><a class="link" href="#assignments">3.4. Assignments</a></h3>
+<h3 id="assignments"><a class="link" href="#assignments">3.7. Assignments</a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="user-friendly-features"><a class="link" href="#user-friendly-features">3.5. User-Friendly Features</a></h3>
+<h3 id="user-friendly-features"><a class="link" href="#user-friendly-features">3.8. User-Friendly Features</a></h3>
 <div class="paragraph">
 <p>The features here do not necessarily contribute directly to a teacher&#8217;s everyday job, but improve the usability
 of Teacher&#8217;s Notebook and make using the application a more forgiving, painless and seamless experience.<br></p>
 </div>
 <div class="sect3">
-<h4 id="autocomplete"><a class="link" href="#autocomplete">3.5.1. Autocomplete</a></h4>
+<h4 id="autocomplete"><a class="link" href="#autocomplete">3.8.1. Autocomplete</a></h4>
 <div class="paragraph">
 <p>The Autocomplete feature allows a user to toggle through suggestions that guess at what command the user wants to type in.<br>
 Upon typing any letters that resemble commands, a popup menu will appear as shown below:</p>
@@ -465,7 +605,7 @@ or use ESC to close the pop window. If the popup menu is closed, no autocomplete
 </div>
 </div>
 <div class="sect3">
-<h4 id="history"><a class="link" href="#history">3.5.2. History</a></h4>
+<h4 id="history"><a class="link" href="#history">3.8.2. History</a></h4>
 <div class="paragraph">
 <p>The History feature allows a user to toggle through their previously entered commands,<br>
 regardless of whether the user command was successful. As this may clash with autocomplete suggestion toggling, we recommend closing<br>
@@ -479,7 +619,7 @@ autocomplete suggestions before using the History feature.<br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="undo-redo-undo-redo"><a class="link" href="#undo-redo-undo-redo">3.5.3. Undo/Redo: Undo/Redo</a></h4>
+<h4 id="undo-redo-undo-redo"><a class="link" href="#undo-redo-undo-redo">3.8.3. Undo/Redo: Undo/Redo</a></h4>
 <div class="paragraph">
 <p>The undo/redo feature allows a user to undo any command, and there is no limit on the number of actions that can be undone or redone.
 After the undo/redo command the application will be in the state before/after the action was made.<br></p>
@@ -507,7 +647,7 @@ This is to say, once the application is closed, all actions done cannot be undon
 </div>
 </div>
 <div class="sect3">
-<h4 id="help"><a class="link" href="#help">3.5.4. Help</a></h4>
+<h4 id="help"><a class="link" href="#help">3.8.4. Help</a></h4>
 <div class="paragraph">
 <p>Triggers a popup window with a link to the user guide.</p>
 </div>
@@ -519,7 +659,7 @@ This is to say, once the application is closed, all actions done cannot be undon
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear"><a class="link" href="#clear">3.5.5. Clear</a></h4>
+<h4 id="clear"><a class="link" href="#clear">3.8.5. Clear</a></h4>
 <div class="paragraph">
 <p>Clears all data from the notebook. If triggered erroneously, the clear command can be undone to reclaim all data.</p>
 </div>
@@ -531,7 +671,7 @@ This is to say, once the application is closed, all actions done cannot be undon
 </div>
 </div>
 <div class="sect3">
-<h4 id="exit"><a class="link" href="#exit">3.5.6. Exit</a></h4>
+<h4 id="exit"><a class="link" href="#exit">3.8.6. Exit</a></h4>
 <div class="paragraph">
 <p>Exits the application and stops all teacher&#8217;s notebook processes.<br></p>
 </div>
@@ -622,4 +762,4 @@ e.g. <code>findstudent John Doe</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 19:11:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 02:26:21 UTC</div></div></div></body></html>
