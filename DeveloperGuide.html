@@ -47,7 +47,8 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-a-student">G.2. Deleting a student</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#undo-redo">G.3. Undo / Redo</a></li>
+<li><a href="#saving-data">G.4. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -280,7 +281,7 @@ The lifeline for <code>DeleteStudentCommandParser</code> should end at the destr
 <p>saves the state of the Notebook after each change in state for undo redo function.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Student&gt;</code>, <code>ObservableList&lt;Assignment&gt;</code>, and <code>ObservableList&lt;Lesson&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Classroom&gt;</code>, <code>ObservableList&lt;Student&gt;</code>, <code>ObservableList&lt;Assignment&gt;</code>, and <code>ObservableList&lt;Lesson&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -1291,10 +1292,10 @@ Teacher&#8217;s Notebook</p>
 <div class="ulist">
 <ul>
 <li>
-<p>&#8230;&#8203;</p>
+<p>Useful for teachers to consolidate all the information related to their class.</p>
 </li>
 <li>
-<p>&#8230;&#8203;</p>
+<p>Easy to navigate and understand how the application works.</p>
 </li>
 </ul>
 </div>
@@ -1304,10 +1305,7 @@ Teacher&#8217;s Notebook</p>
 <div class="ulist">
 <ul>
 <li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
+<p>Unable to pop out reminder when the application is not opened.</p>
 </li>
 </ul>
 </div>
@@ -1375,7 +1373,7 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all students using the <code>list</code> command. Multiple students in the list.</p>
+<p>Prerequisites: List all students using the <code>liststudents</code> command. Multiple students in the list.</p>
 </li>
 <li>
 <p>Test case: <code>deletestudent 1</code><br>
@@ -1396,7 +1394,40 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<h3 id="undo-redo"><a class="link" href="#undo-redo">G.3. Undo / Redo</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Undoing a command that was previously done, and redoing it after.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: A command that changes the state of the notebook should be executed (e.g. add / edit / delete).</p>
+</li>
+<li>
+<p>Test case (assume a student was added in the previous command execution): <code>undo</code><br>
+Expected: The previously added student will now be removed. Command result will show the message 'Undo success!". Student panel will show that the student is no longer in the list.</p>
+</li>
+<li>
+<p>Test case (assume the only previous command was <code>listassignments</code>): <code>undo</code><br>
+Expected: There will be undo command executed. Reason is because there is no change in the state of the notebook. Command result will show the message 'There is no action to undo!'.</p>
+</li>
+<li>
+<p>Test case (assume a student was added in the previous command execution): <code>undo</code>, followed by <code>redo</code><br>
+Expected: When undo is executed, student will be removed from the list just like in test case 1.
+When redo is executed, the student that was previously removed will now be added back again. Command result will show the message 'Redo success!'. Student panel will show that the student is now back in the list.</p>
+</li>
+<li>
+<p>Other incorrect undo / redo commands to try: <code>undo x</code>, <code>redo x</code>, <code>undoes</code>, <code>redoes</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">G.4. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1418,4 +1449,4 @@ Expected: New notebook with populated data.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:58:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:16:39 UTC</div></div></div></body></html>
