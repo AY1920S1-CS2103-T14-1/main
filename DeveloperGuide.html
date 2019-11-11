@@ -682,20 +682,54 @@ If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, p
 <div class="paragraph">
 <p>The Assignment class works with high similarity to the Student Class implemented.
 A UniqueList of Assignments exist in the Classroom Class alongside the UniqueList of Students, and serve to keep track of assignments for a particular Classroom.
-Additionally, it implements the following operations through Commands:</p>
+The commands that work in similar fashion to Student Class are:<br>
+<code>AddAssignment</code>, <code>DeleteAssignment</code>, <code>EditAssignment</code>, <code>ListAssignment</code></p>
+</div>
+<div class="paragraph">
+<p>Additionally, it implements the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>UniqueAssignmentList#setAssignment()</code>&#8201;&#8212;&#8201;Adds a new Assignment object to the UniqueAssignmentList.</p>
+<p><code>UniqueAssignmentList#addAssignment()</code>&#8201;&#8212;&#8201;Adds a new Assignment object to the UniqueAssignmentList.</p>
 </li>
 <li>
-<p><code>UniqueAssignmentList#remove()</code>&#8201;&#8212;&#8201;Removes an Assignment object from the UniqueAssignmentList.</p>
+<p><code>UniqueAssigmentList#remove()</code>&#8201;&#8212;&#8201;Removes a Lesson object from the UniqueAssignmentList.</p>
 </li>
 <li>
-<p><code>Assignment#setGrades()</code>&#8201;&#8212;&#8201;Updates the AssignmentGrade class of the Assignment with user input.</p>
+<p><code>UniqueAssignmentList#setAssignment()</code>&#8201;&#8212;&#8201;Updates the Assignment with user input.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The Assignment class keeps track of the grades of all students in the class for a particular assignment. This feature is
+necessary to users to monitor the progress of every student, and to provide assistance to students who might be
+failing their tests.
+Each Assignment contains the following classes: AssignmentName, AssignmentGrade, and AssignmentDeadline.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The AssignmentName stores the name of the assignment.</p>
+</li>
+<li>
+<p>The AssignmentGrade class contains the grades of every student in the class through a LinkedHashMap&lt;String studentName, String marks&gt;.</p>
+</li>
+<li>
+<p>The AssignmentDeadline class contains the time when the assignment is due.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Upon creation of a new Assignment, <code>Assignment#initialiseGrades()</code> is called, which populates the LinkedHashMap
+with keys (students' names) and the value "Not Submitted". The user can then update the grades of a student individually or
+all of the students simultaneously through the <code>UpdateGrades</code> command, which calls the method <code>Assignment#setGrades()</code>.</p>
+</div>
+<div class="paragraph">
+<p>After every command, <code>Assignment#checkCompletion()</code> is called to determine the completion status of the assignment,
+which will be "Completed" if none of the grades are "Not Submitted". Upon addition of a new student into the classroom,
+each Assignment present in the classroom will add another entry into the AssignmentGrade. If the Assignment was Not Completed,
+the value "Not Submitted" will be paired with the key through the method <code>Assignment#addNewStudentGrade</code>. Should the Assignment have been Completed, the value "Late to the party" will be paired instead through the method <code>Assignment#addOneStudentGrade</code>, indicating that the student does not need to submit said assignment any longer, since it has already been graded before he/she joined the classroom.</p>
 </div>
 </div>
 </div>
@@ -1449,4 +1483,4 @@ Expected: New notebook with populated data.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:16:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:17:20 UTC</div></div></div></body></html>
