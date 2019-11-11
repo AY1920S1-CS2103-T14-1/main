@@ -30,7 +30,8 @@
 <li><a href="#get-unsubmitted-assignments-feature">3.6. Get unsubmitted assignments feature</a></li>
 <li><a href="#lesson-feature">3.7. Lesson Feature</a></li>
 <li><a href="#scheduling-feature">3.8. Scheduling Feature</a></li>
-<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
+<li><a href="#logging">3.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -784,21 +785,22 @@ Once the timing of lesson is reached, an alert box will be created in the GUI to
 <img src="images/SchedulingActivityDiagram.png" alt="SchedulingActivityDiagram">
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">image</dt>
-<dd>
-<p>=== Logging</p>
-</dd>
-</dl>
+<div class="imageblock">
+<div class="content">
+<img src="images/SchedulingSequenceDiagram.png" alt="SchedulingSequenceDiagram">
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -828,9 +830,8 @@ Once the timing of lesson is reached, an alert box will be created in the GUI to
 </ul>
 </div>
 </div>
-</div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1417,4 +1418,4 @@ Expected: New notebook with populated data.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:50:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:45:47 UTC</div></div></div></body></html>

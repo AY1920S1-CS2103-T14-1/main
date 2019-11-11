@@ -302,10 +302,53 @@ Format: 'findlesson KEYWORD'</p>
 As a more OOP model, we can store a <code>Tag</code> list in <code>Classroom</code>, which <code>Student</code> can reference. This would allow <code>Classroom</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Student</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="../images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
+=== Lesson Feature
+==== Implementation
 </td>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>The Lesson class works with high similarity to the Student Class implemented.
+A UniqueList of Lessons exist in the Notebook alongside the UniqueList of Classrooms, and serve to keep track of lessons for the user.
+Additionally, it implements the following operations through Commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueLessonList#addLesson()</code>&#8201;&#8212;&#8201;Adds a new Lesson object to the UniqueLessonList.</p>
+</li>
+<li>
+<p><code>UniqueLessonList#remove()</code>&#8201;&#8212;&#8201;Removes a Lesson object from the UniqueLessonList.</p>
+</li>
+<li>
+<p><code>Lesson#set()</code>&#8201;&#8212;&#8201;Updates the Lesson with user input.</p>
+</li>
+</ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:50:55 UTC</div></div></div></body></html>
+<div class="sect2">
+<h3 id="scheduling-feature"><a class="link" href="#scheduling-feature">Scheduling Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>When a new Lesson is added to the UniqueLessonList, a listener attached to the list will be triggered and it will create a scheduler to schedule the lesson.
+Once the timing of lesson is reached, an alert box will be created in the GUI to serve as a reminder.</p>
+</div>
+<div class="paragraph">
+<p>The following activity and sequence diagram shows how the scheduling operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SchedulingActivityDiagram.png" alt="SchedulingActivityDiagram">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SchedulingSequenceDiagram.png" alt="SchedulingSequenceDiagram">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:45:48 UTC</div></div></div></body></html>
