@@ -73,6 +73,9 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 <p>Fixed exit issues for the app (Pull request <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/183" class="bare">https://github.com/AY1920S1-CS2103-T14-1/main/pull/183</a>)</p>
 </li>
 <li>
+<p>Improved test coverage (Pull request <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/210" class="bare">https://github.com/AY1920S1-CS2103-T14-1/main/pull/210</a>)</p>
+</li>
+<li>
 <p>Community:</p>
 </li>
 <li>
@@ -159,8 +162,8 @@ There are several fields in each lesson as shown below:</p>
 <div class="sect3">
 <h4 id="adding-addlesson"><a class="link" href="#adding-addlesson">Adding: addlesson</a></h4>
 <div class="paragraph">
-<p>Adds a lesson to the lesson list of the notebook,<br>
-feature to repeat lessons will be implemented in v2.0<br>
+<p>Adds a lesson to the lesson list of the notebook.<br>
+Feature to repeat lessons will be implemented in v2.0<br>
 Format: <code>addlesson l/LESSON st/START_TIME et/ET_TIME:dd/MM/yy HHmm</code></p>
 </div>
 <div class="paragraph">
@@ -175,6 +178,18 @@ Format: <code>addlesson l/LESSON st/START_TIME et/ET_TIME:dd/MM/yy HHmm</code></
 <p><code>addlesson l/English 3E8 st/06/01/2020 1200 et/06/01/2020 1300</code></p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Once a lesson is added, a reminder will be automatically scheduled and an alert box will pop up when current time matches the time of the lesson.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -322,12 +337,15 @@ Format: <code>findlesson KEYWORD</code></p>
 As a more OOP model, we can store a <code>Tag</code> list in <code>Classroom</code>, which <code>Student</code> can reference. This would allow <code>Classroom</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Student</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="../images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
-=== Lesson Feature
-==== Implementation
 </td>
 </tr>
 </table>
 </div>
+</div>
+<div class="sect2">
+<h3 id="lesson-feature"><a class="link" href="#lesson-feature">Lesson Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
 <p>The Lesson class works with high similarity to the Student Class implemented.
 A UniqueList of Lessons exist in the Notebook alongside the UniqueList of Classrooms, and serve to keep track of lessons for the user.
@@ -347,10 +365,11 @@ Additionally, it implements the following operations through Commands:</p>
 </ul>
 </div>
 </div>
+</div>
 <div class="sect2">
 <h3 id="scheduling-feature"><a class="link" href="#scheduling-feature">Scheduling Feature</a></h3>
 <div class="sect3">
-<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
 <div class="paragraph">
 <p>When a new Lesson is added to the UniqueLessonList, a listener attached to the list will be triggered and it will create a scheduler to schedule the lesson.
 Once the timing of lesson is reached, an alert box will be created in the GUI to serve as a reminder.</p>
@@ -371,4 +390,4 @@ Once the timing of lesson is reached, an alert box will be created in the GUI to
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:24:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:26:20 UTC</div></div></div></body></html>
