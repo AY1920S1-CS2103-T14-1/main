@@ -107,7 +107,216 @@ to the entire structure of the application, from logic and commands to storage.<
 </table>
 <div class="sect2">
 <h3 id="assignments"><a class="link" href="#assignments">Assignments</a></h3>
-
+<div class="paragraph">
+<p>Assignments are contained within each class. There are two fields in each assignment as shown below:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Name - Prefix: as/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Names must be alphanumerical, and cannot be empty.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Deadline - Prefix: d/</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Deadlines must be in the format dd/MM/yyyy HHmm, and later than the current date and time e.g. 01/12/19 0000, 25/12/19 2359</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="adding-assignment-addassignment"><a class="link" href="#adding-assignment-addassignment">Adding Assignment: addassignment</a></h4>
+<div class="paragraph">
+<p>Adds an assignment to the assignment list of the current class.<br>
+Format: <code>addassignment as/ASSIGNMENT d/DEADLINE:dd/MM/yyyy HHmm</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addassignment as/Math Test d/29/11/2020 1400</code></p>
+</li>
+<li>
+<p><code>addassignment as/English Test 2 d/30/11/2020 1400</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-assignment-editassignment"><a class="link" href="#editing-assignment-editassignment">Editing Assignment: editassignment</a></h4>
+<div class="paragraph">
+<p>Edits an assignment at the specified index in the student list of the current class.<br>
+Format: <code>editassignment ASSIGNMENT_INDEX [as/ASSIGNMENT_NAME] [d/ASSIGNMENT_DEADLINE]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editassignment 1 as/English Test d/29/11/2020 1400</code></p>
+</li>
+<li>
+<p><code>editassignment 1 as/Math Test d/29/11/2020 1600</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The index provided must be valid (is an integer and exists in the assignment list) and at least one field must be edited. If the list has been filtered through the Finding Assignment command, the index provided corresponds to the index on the filtered list.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-deleteassignment"><a class="link" href="#deleting-deleteassignment">Deleting: deleteassignment</a></h4>
+<div class="paragraph">
+<p>Deletes an assignment at the specified index in the assignment list of the current class.<br>
+Format: <code>deleteassignment ASSIGNMENT_INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteassignment 1</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The index provided must be valid (is an integer and exists in the assignment list). If the list has been filtered through the Finding Assignment command, the index provided corresponds to the index on the filtered list.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-assignments-listassignments"><a class="link" href="#listing-assignments-listassignments">Listing Assignments: listassignments</a></h4>
+<div class="paragraph">
+<p>Lists all the assignments in the assignment list
+    Format: <code>listassignments</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-assignment-findstudent"><a class="link" href="#finding-assignment-findstudent">Finding Assignment: findstudent</a></h4>
+<div class="paragraph">
+<p>Find assignments whose name matches a given keyword in the current classroom.<br>
+Format: <code>findassignment ASSIGNMENT_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findassignment Math</code></p>
+</li>
+<li>
+<p><code>findassignment Test</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The keyword is not case-sensitive, so as to provide ease of use for the user.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="updating-grades-grades"><a class="link" href="#updating-grades-grades">Updating Grades: grades</a></h4>
+<div class="paragraph">
+<p>Updates the grades of the assignment identified by the index number of the assignment list of the current classroom<br>
+This can be done for all students simultaneously or for a particular student.<br>
+Format (All Students): <code>as/ASSIGNMENT_INDEX g/GRADE GRADE &#8230;&#8203; GRADE</code><br>
+Format (One Student): <code>as/ASSIGNMENT_INDEX s/STUDENT_INDEX g/GRADE</code><br></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>grades as/1 g/10 20 30 40</code></p>
+</li>
+<li>
+<p><code>grades as/1 s/1 g/10</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Grades must be an integer from 0 to 100, and ASSIGNMENT_INDEX must be valid (check above for definition of valid ASSIGNMENT_INDEX). For the All Students variant, the number of grades input must be equal to the total number of students in the classroom. For the One Student variant, the STUDENT_INDEX must be valid.<br>
+The default grades of all students is "Not Submitted". Once there are no longer any "Not Submitted" grades belonging to the assignment, the assignment is marked as completed<br>
+When a student is added, each uncompleted assignment will include the new student with the grade "Not Submitted"<br>
+When a student is added, each completed assignment will include the new student with the grade "Late to the party". This distinguishes the whether the student was added before or after the assignment was marked (completed) by the user, and it would be unfair to expect a new student to submit work that was assigned before he/she joined the classroom.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="get-grades-getgrades"><a class="link" href="#get-grades-getgrades">Get Grades: getgrades</a></h4>
+<div class="paragraph">
+<p>Gets all the grades of the chosen student index in the current classroom.<br>
+The command result will show all the grades of the specified student.<br>
+Format: <code>getgrades STUDENT_INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>getgrades 1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="get-unsubmitted-assignments-getunsubmitted"><a class="link" href="#get-unsubmitted-assignments-getunsubmitted">Get Unsubmitted Assignments: getunsubmitted</a></h4>
+<div class="paragraph">
+<p>Gets all the unsubmitted assignments in the current classroom.<br>
+The command result will unsubmitted assignments with the corresponding student names.<br>
+Format: <code>getunsubmitted</code></p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -351,4 +560,4 @@ If the <code>statePointer</code> is at index <code>mementos.size() - 1</code>, p
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:45:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:58:21 UTC</div></div></div></body></html>

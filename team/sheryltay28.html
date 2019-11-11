@@ -161,7 +161,7 @@ There are several fields in each lesson as shown below:</p>
 <div class="paragraph">
 <p>Adds a lesson to the lesson list of the notebook,<br>
 feature to repeat lessons will be implemented in v2.0<br>
-Format: addlesson l/LESSON st/START_TIME et/ET_TIME:dd/MM/yy HHmm</p>
+Format: <code>addlesson l/LESSON st/START_TIME et/ET_TIME:dd/MM/yy HHmm</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -169,25 +169,33 @@ Format: addlesson l/LESSON st/START_TIME et/ET_TIME:dd/MM/yy HHmm</p>
 <div class="ulist">
 <ul>
 <li>
-<p>'addlesson l/Math 4E7 st/12/01/2020 1200 et/12/01/2020 1300'</p>
+<p><code>addlesson l/Math 4E7 st/12/01/2020 1200 et/12/01/2020 1300</code></p>
 </li>
 <li>
-<p>'addlesson l/English 3E8 st/06/01/2020 1200 et/06/01/2020 1300'</p>
+<p><code>addlesson l/English 3E8 st/06/01/2020 1200 et/06/01/2020 1300</code></p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="editing-editlesson"><a class="link" href="#editing-editlesson">Editing: editlesson</a></h4>
 <div class="paragraph">
-<p>==Editing: editlesson
-Edits a lesson at the specific index in the day list of reminder panel.<br>
+<p>Edits a lesson at the specific index in the day list of reminder panel.<br>
 Day index represents day in week, e.g. Monday: 1, Tuesday: 2<br>
-Format: 'editlesson LESSON_INDEX day/DAY_INDEX [l/LESSON_NAME] [st/START_TIME] [et/END_TIME]'</p>
+Format: <code>editlesson LESSON_INDEX day/DAY_INDEX [l/LESSON_NAME] [st/START_TIME] [et/END_TIME]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
-<p>'editlesson 1 day/3 l/English 4E2'
-'editlesson 2 day/4 st/05/01/2020 1200 et/05/01/2020 1300'</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editlesson 1 day/3 l/English 4E2</code></p>
+</li>
+<li>
+<p><code>editlesson 2 day/4 st/05/01/2020 1200 et/05/01/2020 1300</code></p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -207,14 +215,20 @@ The index and day index provided must be valid and at least one field must be ed
 <div class="paragraph">
 <p>Deletes a lesson at the specified index in the day list of reminder panel.<br>
 Day index represents day in week, e.g. Monday: 1, Tuesday: 2<br>
-Format: 'deletelesson LESSON_INDEX day/DAY_INDEX'</p>
+Format: <code>deletelesson LESSON_INDEX day/DAY_INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
-<p>'deletelesson 1 day/2'
-'deletelesson 3 day/4'</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletelesson 1 day/2</code></p>
+</li>
+<li>
+<p><code>deletelesson 3 day/4</code></p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -233,14 +247,20 @@ The index and day index provided must be valid and at least one field must be ed
 <h4 id="finding-findlesson"><a class="link" href="#finding-findlesson">Finding: findlesson</a></h4>
 <div class="paragraph">
 <p>Finds lessons which match the given keyword.<br>
-Format: 'findlesson KEYWORD'</p>
+Format: <code>findlesson KEYWORD</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
-<p>'findlesson Math'
-'findlesson 12:00'</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findlesson Math</code></p>
+</li>
+<li>
+<p><code>findlesson 12:00</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -351,4 +371,4 @@ Once the timing of lesson is reached, an alert box will be created in the GUI to
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:45:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:58:21 UTC</div></div></div></body></html>
