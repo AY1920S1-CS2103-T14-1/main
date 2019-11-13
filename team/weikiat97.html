@@ -445,19 +445,25 @@ Format: <code>getunsubmitted</code></p>
 <div class="paragraph">
 <p>Restores the database to the state before the previous undoable command was executed.</p>
 </div>
-<div class="paragraph">
-<p>[NOTE] Undoable commands are commands that modify the database&#8217;s content: <code>add</code>, <code>delete</code>
-<code>edit</code>, <code>clear</code>, <code>upload</code>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Undoable commands are commands that modify the database&#8217;s content: <code>add</code>, <code>delete</code>
+<code>edit</code>, <code>clear</code>, <code>upload</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Undo/redo cannot, however, undo actions made during previous activation of Teacher&#8217;s Notebook.<br>
 This is to say, once the application is closed, all actions done cannot be undone.<br></p>
 </div>
 <div class="paragraph">
-<p>Usage:</p>
-</div>
-<div class="paragraph">
-<p>Enter <code>undo</code> or <code>redo</code><br></p>
+<p>Format: <code>undo</code> or <code>redo</code><br></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -469,7 +475,7 @@ This is to say, once the application is closed, all actions done cannot be undon
 <code>redo</code> (applies the delete command again)<br></p>
 </li>
 <li>
-<p><code>liststudents</code> + <code>undo</code> (Error message pops up, no )</p>
+<p><code>liststudents</code> + <code>undo</code> (Error message displayed as no changes made to database)</p>
 </li>
 </ul>
 </div>
@@ -627,4 +633,4 @@ the value, which is the grades of the student, will be added to the output that 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-13 04:18:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-13 14:54:59 UTC</div></div></div></body></html>

@@ -16,30 +16,12 @@
 <p>Teacher&#8217;s Notebook is a desktop application designed by my group mates and I for a software engineering
 module in National University of Singapore (NUS).
 It&#8217;s target audience is secondary or primary school teachers in Singapore.
-It aims to improve the efficiency of the efficiency of these teachers.
-The project was created under the constraint of the fact that the user only
-interacts with the application through a Command Line Interface (CLI).
-It is written in Java, and has about 10 kLoC.</p>
+It aims to improve the efficiency of these teachers,
+by being a one-stop platform to consolidate information that teachers would need.</p>
 </div>
 <div class="paragraph">
-<p>The main features of the project are:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The ability to manage students and their information, including keeping track of
-their grades, personal information and assignments.</p>
-</li>
-<li>
-<p>The ability to manage, and be reminded of, lessons.</p>
-</li>
-<li>
-<p>The ability to</p>
-</li>
-<li>
-<p>The ability to</p>
-</li>
-</ul>
+<p>The user interacts with Teacher&#8217;s Notebook using a Command Line Interface (CLI), and it has a Graphical User Interface
+(GUI) created with JavaFX. It is written in Java, and has about 10 kLoC</p>
 </div>
 </div>
 </div>
@@ -48,22 +30,6 @@ their grades, personal information and assignments.</p>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
-<li>
-<p><strong>Major Enhancement</strong>: added the ability to upload and display photos of students</p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does</p>
-</li>
-<li>
-<p>Justification</p>
-</li>
-<li>
-<p>Highlight</p>
-</li>
-</ul>
-</div>
-</li>
 <li>
 <p><strong>Major Enhancement</strong>: added the autocomplete feature to the gui</p>
 <div class="ulist">
@@ -88,13 +54,15 @@ to execute the intended command successfully without referring to the UserGuide.
 </div>
 </li>
 <li>
+<p><strong>Minor Enhancement</strong>: added the ability to upload a picture of a student, in only a PNG or JPG format.</p>
+</li>
+<li>
 <p><strong>Minor Enhancement</strong>: added the ability to scroll through previously entered commands with the up and down arrow keys</p>
 </li>
 <li>
 <p>Code Contributed [<a href="https://github.com/AY1920S1-CS2103-T14-1/main/commits?author=sebastianlie">Functional Code</a>] [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=SebastianLie&amp;tabRepo=AY1920S1-CS2103-T14-1%2Fmain%5Bmaster%5D">RepoSense</a>
 ]</p>
-<div class="ulist">
-<ul>
+</li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
@@ -117,7 +85,7 @@ to execute the intended command successfully without referring to the UserGuide.
 <p>Added 2 extra panels to the GUI, and added display picture to the student card (PRs <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/61">#61</a>, <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/85">#85</a>)</p>
 </li>
 <li>
-<p>improved test coverage from 25 to 33 %, PR #189, #190, #191: 46-48% (Pull requests <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/190">#190</a>, Pull requests <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/189">#189</a>)</p>
+<p>improved test coverage from 25 to 33 %, PR #189, #190, #191: 46-48% (PRs <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/191">#191</a>, <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/190">#190</a>, Pull requests <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/189">#189</a>)</p>
 </li>
 </ul>
 </div>
@@ -127,7 +95,7 @@ to execute the intended command successfully without referring to the UserGuide.
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Updated class diagram for model and UI component: (PRs <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/86">#86</a>)</p>
 </li>
 </ul>
 </div>
@@ -137,25 +105,13 @@ to execute the intended command successfully without referring to the UserGuide.
 <div class="ulist">
 <ul>
 <li>
-<p>Reviewed PRs of other team members</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
+<p>Reviewed PRs of other team members (PRs <a href="https://github.com/AY1920S1-CS2103-T14-1/main/pull/186">#186</a>)</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Other contributions:</p>
-</li>
-<li>
-<p>Added Test coverage: improved test coverage from 25 to 33 %, PR #189, #190, #191: 46-48%</p>
 </li>
 </ul>
 </div>
@@ -190,6 +146,9 @@ Upon typing any letters that resemble commands, a popup menu will appear as show
 <div class="content">
 <img src="../images/autocorrect/autocomplete2.jpg" alt="auto" width="500" height="480">
 </div>
+</div>
+<div class="paragraph">
+<p>Selecting any of these suggestions results sets the text of the text field to the suggestion.</p>
 </div>
 <div class="paragraph">
 <p>Usage:</p>
@@ -249,19 +208,25 @@ history feature.
 <div class="paragraph">
 <p>Restores the database to the state before the previous undoable command was executed.</p>
 </div>
-<div class="paragraph">
-<p>[NOTE] Undoable commands are commands that modify the database&#8217;s content: <code>add</code>, <code>delete</code>
-<code>edit</code>, <code>clear</code>, <code>upload</code>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Undoable commands are commands that modify the database&#8217;s content: <code>add</code>, <code>delete</code>
+<code>edit</code>, <code>clear</code>, <code>upload</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Undo/redo cannot, however, undo actions made during previous activation of Teacher&#8217;s Notebook.<br>
 This is to say, once the application is closed, all actions done cannot be undone.<br></p>
 </div>
 <div class="paragraph">
-<p>Usage:</p>
-</div>
-<div class="paragraph">
-<p>Enter <code>undo</code> or <code>redo</code><br></p>
+<p>Format: <code>undo</code> or <code>redo</code><br></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -273,7 +238,7 @@ This is to say, once the application is closed, all actions done cannot be undon
 <code>redo</code> (applies the delete command again)<br></p>
 </li>
 <li>
-<p><code>liststudents</code> + <code>undo</code> (Error message pops up, no )</p>
+<p><code>liststudents</code> + <code>undo</code> (Error message displayed as no changes made to database)</p>
 </li>
 </ul>
 </div>
@@ -284,10 +249,7 @@ This is to say, once the application is closed, all actions done cannot be undon
 <p>Triggers a popup window with a link to the user guide.</p>
 </div>
 <div class="paragraph">
-<p>Usage:</p>
-</div>
-<div class="paragraph">
-<p>Enter <code>help</code><br></p>
+<p>Format: <code>help</code><br></p>
 </div>
 </div>
 <div class="sect3">
@@ -296,10 +258,7 @@ This is to say, once the application is closed, all actions done cannot be undon
 <p>Clears all data from the notebook. If triggered erroneously, the undo command can be used to reclaim all data.</p>
 </div>
 <div class="paragraph">
-<p>Usage:</p>
-</div>
-<div class="paragraph">
-<p>Enter <code>clear</code> to clear all data<br></p>
+<p>Format: <code>clear</code><br></p>
 </div>
 </div>
 <div class="sect3">
@@ -308,10 +267,7 @@ This is to say, once the application is closed, all actions done cannot be undon
 <p>Exits the application and stops all teacher&#8217;s notebook processes.<br></p>
 </div>
 <div class="paragraph">
-<p>Usage:</p>
-</div>
-<div class="paragraph">
-<p>Enter <code>exit</code><br></p>
+<p>Format: <code>exit</code><br></p>
 </div>
 </div>
 </div>
@@ -489,7 +445,7 @@ whenever the user inputs new text, i.e when the text entered changes.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. From the text entered, <code>AutoCompleteTextField</code> attempts suggesting existing commands.
-If input matches any existing commands, it proceeds to step 3. Otherwise, it does nothing and waits user input.</p>
+If input matches any existing commands, it proceeds to step 3. Otherwise, it does nothing and waits for user input.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. <code>AutoCompleteTextField</code> calls `Styles#buildTextFlow`to highlight the portion of each
@@ -578,4 +534,4 @@ and displays the new picture for the chosen student.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-13 04:18:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-13 14:54:59 UTC</div></div></div></body></html>
