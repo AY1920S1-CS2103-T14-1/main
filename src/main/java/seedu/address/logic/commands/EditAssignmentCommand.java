@@ -68,13 +68,6 @@ public class EditAssignmentCommand extends Command {
         Assignment assignmentToEdit = lastShownList.get(index.getZeroBased());
         Assignment editedAssignment = createEditedAssignment(assignmentToEdit, editAssignmentDescriptor);
 
-        if (!editedAssignment.isCompleted()) {
-            List<Student> studentList = model.getFilteredStudentList();
-            for (Student student: studentList) {
-                editedAssignment.addOneStudentGrade(student.getName().fullName);
-            }
-        }
-
         if (!assignmentToEdit.isSameAssignment(editedAssignment) && model.hasAssignment(editedAssignment)) {
             throw new CommandException(MESSAGE_DUPLICATE_ASSIGNMENT);
         }
@@ -98,11 +91,11 @@ public class EditAssignmentCommand extends Command {
         AssignmentDeadline updatedAssignmentDeadline = editAssignmentDescriptor.getAssignmentDeadline()
                 .orElse(assignmentToEdit.getAssignmentDeadline());
         Assignment output = new Assignment(updatedAssignmentName, updatedAssignmentDeadline);
-        if (assignmentToEdit.isCompleted()) {
-            List<String> studentNames = assignmentToEdit.namesStringListFromGrades();
-            List<String> studentsGrades = assignmentToEdit.marksStringListFromGrades();
-            output.setGrades(studentNames, studentsGrades);
-        }
+
+        List<String> studentNames = assignmentToEdit.namesStringListFromGrades();
+        List<String> studentsGrades = assignmentToEdit.marksStringListFromGrades();
+        output.setGrades(studentNames, studentsGrades);
+
         return output;
     }
 
